@@ -1,0 +1,15 @@
+.slider-title {
+    text-align: center;
+}
+.slider-separator {
+    float: none;
+    margin: 0 auto;
+}
+.slider-text {
+    text-align: center;
+}
+.slider-button {
+    float: none;
+    text-align: center;
+    display: block;
+}

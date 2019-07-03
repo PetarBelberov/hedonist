@@ -1,0 +1,20 @@
+slider-content {
+    margin-right: 1rem;
+}
+@media only screen and (min-width: 768px) {
+    .slider-content {
+        margin-right: 3rem;
+    }
+}
+.slider-title {
+    text-align: right;
+}
+.slider-separator {
+    float: right;
+}
+.slider-text {
+    text-align: right;
+}
+.slider-button {
+    float: right;
+}

@@ -1,0 +1,354 @@
+html, body {
+    width: auto;
+    overflow-x: hidden;
+}
+
+
+body {
+    margin-bottom: 0px !important;
+}
+
+
+.home-container {
+    padding-bottom: 5rem;
+    background-color: #F5F5F5;
+}
+
+.site-title {
+    display: none;
+}
+
+#masthead {
+    /*top: 0;*/
+    font-family: 'Bad Script', cursive;
+    height: 64px;
+    display: inline-block;
+    width: 100%;
+    border-bottom: 4px solid #c7a77a;
+    position:absolute;
+    z-index: 999;
+    background-color: #fff;
+    transition: all 0.5s;
+}
+
+.site-branding {
+    display: inline-block;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+.sticky .site-branding {
+    /*margin-top: 6px;*/
+}
+
+.site-branding a {
+    margin-left: 1rem
+}
+
+/* Logo width */
+.site-branding a img {
+    width: 60%;
+}
+
+.main-navigation {
+    display: inline-block;
+    float: right;
+    width: 35%;
+}
+
+.main-navigation a {
+    font-size: 18px;
+    color: #212529;
+}
+
+/* Main Menu margin */
+#site-navigation {
+    margin-top: 20px;
+    padding-bottom: 1rem;
+}
+
+.slider-content  {
+    margin: 3rem 0 0 1rem;
+}
+
+.slider-separator {
+    width: 30%;
+    border: 3px solid #c7a77a;
+    clear: both;
+    position: relative;
+}
+
+/* Home */
+.home-widget-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 66px;
+    line-height: 92px;
+    text-align: center;
+    padding-top: 3rem;
+    color: #B1B1B1;
+    font-weight: 900;
+}
+
+#foogallery-gallery-35 {
+    padding-top: 5rem;
+}
+
+/* Footer */
+.site-footer {
+    background-color: rgba(255,255,255,0);
+    background-image: url(http://dev.wp.com.localhost/wordpress/wp-content/uploads/2019/05/footer-background-lucierre.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    background-color: #121314;
+    padding-top: 2rem;
+    font-size: 13px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.site-footer .site-info {
+    /*background-color: #121314;*/
+}
+
+#media_image-2 img {
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+#text-2 .textwidget {
+    text-align: center;
+    color: #8C8989;
+}
+
+#text-3 {
+    background-color: #161718;
+}
+
+#text-3 .textwidget {
+    padding: 20px;
+    text-align: center;
+    color: #717070;
+}
+
+#text-3 .textwidget p {
+    margin-bottom: 0rem;
+}
+
+#primary-menu {
+    /*float: right;*/
+    margin-top: 0rem;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+/* Header */
+#site-navigation a:link {
+    text-decoration: none;
+    outline: none;
+}
+#site-navigation a {
+    color: black;
+}
+
+#site-navigation a:hover {
+    color: #DDA2B0;
+}
+
+/* Sticky menu */
+
+.sticky {
+    left:0;
+    right:0;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    /*height: 65px;*/
+    background: rgba(255, 255, 255, 0.9) !important;
+    transition: all 0.5s;
+}
+
+
+/* Mobile Menu */
+@media screen and (min-width: 901px) {
+    #toggle {
+        display:none;
+    }
+    #primary-menu {
+        float: right;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #popout-2 {
+        position: fixed;
+        height: 100%;
+        width: 50%;
+        background: rgba(25, 25, 25, 0.9);
+        color: white;
+        top: 0px;
+        right: -500px;
+        overflow:auto;
+    }
+
+    #popout {
+        position: fixed;
+        height: 100%;
+        width: 50%;
+        /*background: #191816;*/
+        /*background: rgba(25, 25, 25, .9);*/
+        color: white;
+        top: 0px;
+        left: -500px;
+        overflow:auto;
+
+        background-color: rgba(255,255,255,0);
+        background-image: url(http://dev.wp.com.localhost/wordpress/wp-content/uploads/2019/05/footer-background-lucierre.jpg);
+        background-position: center top;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    #toggle {
+        z-index: 10000;
+        float: right;
+        margin-right: 1rem;
+        width: 28px;
+        height: 24px;
+        position: relative;
+    }
+
+    #toggle .fa-close{
+        font-size: 24px;
+        color: white;
+    }
+
+    .nav-menu li {
+        border-bottom:1px solid #eee;
+        padding:20px;
+        width:100%;
+    }
+
+    .nav-menu li:hover {
+        background:#CCC;
+    }
+
+    .nav-menu li a {
+        color:#FFF;
+        text-decoration:none;
+        width:100%;
+    }
+
+    #popout ul li a {
+        color: white;
+    }
+
+    #popout #primary-menu {
+        margin-top: 3rem;
+        margin-left: 0px;
+        padding-left: 20px;
+        line-height: 3rem;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .sticky {
+        top: 0;
+    }
+}
+
+/* For desktop: */
+@media screen and (min-width: 768px) {
+    .main-navigation {
+        display: inline-block;
+        float: right;
+        width: 70%;
+    }
+
+    .site-branding a {
+        margin-left: 3rem
+    }
+
+    .site-branding:hover {
+        padding-left: 5px;
+        transition: all .4s ease;
+        -webkit-transition: all .4s ease;
+    }
+
+    .slider-content {
+        padding-top: 50px;
+        margin: 3rem 0 0 3rem;
+    }
+
+    .services-container {
+        max-width: 32% !important;
+    }
+
+    .services-containers {
+        padding: 0px 20px 0px 20px;
+    }
+}
+
+@media screen and (min-width: 899px) {
+    .main-navigation li {
+        display: inline-block;
+    }
+
+}
+
+@media screen and (max-width: 920px) {
+    .main-navigation li a {
+        padding-right: 1rem;
+    }
+}
+
+@media screen and (max-width: 1096px) and (min-width: 920px) {
+    .main-navigation li a {
+        padding-right: 2rem;
+    }
+}
+
+@media screen and (min-width: 1096px) {
+    .main-navigation li a {
+        padding-right: 3rem;
+    }
+}
+
+@media screen and (max-width: 893px) and (min-width: 768px)   {
+    .main-navigation {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 372px) {
+    .site-branding {
+        width: 80%;
+    }
+    .main-navigation {
+        width: 7%;
+    }
+
+    #toggle {
+        width: 20px;
+    }
+
+    #primary-menu {
+        float: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .profile{
+        width: 60%;
+    }
+}

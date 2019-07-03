@@ -1,0 +1,68 @@
+/* Home page slider */
+.slider-container {
+    /* Full height */
+    height: 88vh;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title-heading {
+    font-size: 75px;
+    line-height: 110px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0px;
+    font-style: normal;
+}
+
+.slider-text p {
+    color: #686868;
+    font-size: 17px;
+    margin-top: 30px;
+    font-family: 'Bad Script', cursive;
+    font-weight: 800;
+}
+
+/* Button slider */
+.slider-button {
+    display: inline;
+    float: left;
+    margin-top: 50px;
+}
+
+.slider-button-link {
+    padding: 17px 40px;
+    line-height: 21px;
+    font-size: 18px;
+    border: 2px solid #be9359;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slider-button-link:hover {
+    border-color: #99734c;
+    text-decoration: none;
+}
+
+.slider-button-text {
+    text-transform: uppercase;
+    color: #be9359;
+    font-family: 'Playfair Display', serif;
+}
+
+.slider-button-link:hover .slider-button-text {
+    color: #99734c;
+}
+
+/* For desktop: */
+@media screen and (min-width: 768px) {
+    .profile{
+        margin-top: 25px;
+        width: 100%;
+        height: 320px;
+        /*padding-bottom: 50px;*/
+    }
+}
