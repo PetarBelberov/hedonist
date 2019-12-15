@@ -157,7 +157,9 @@ function hedonist_scripts() {
 
 	wp_enqueue_script( 'hedonist-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-    wp_enqueue_script( 'custom', get_template_directory_uri() . '/custom-style/custom.js', array('jquery'), 1.1, true );
+	wp_enqueue_script( 'custom', get_template_directory_uri() . '/custom-style/custom.js', array('jquery'), 1.1, true );
+
+	wp_enqueue_script( 'animated-scrolling', get_template_directory_uri() . '/custom-style/animated-scrolling.js', array('jquery'), 1.1, true );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -168,14 +170,14 @@ add_action( 'wp_enqueue_scripts', 'hedonist_scripts' );
 function custom_enqueue_styles() {
 
     wp_enqueue_style( 'custom', get_template_directory_uri() . '/custom-style/custom.css' );
-    wp_enqueue_style( 'core', get_template_directory_uri() . '/custom.css' );
+    // wp_enqueue_style( 'core', get_template_directory_uri() . '/custom.css' );
     wp_enqueue_style( 'fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );
 
 }
 add_action( 'wp_enqueue_scripts', 'custom_enqueue_styles');
 
 function add_google_fonts() {
-    wp_enqueue_style( 'add_google_fonts', 'https://fonts.googleapis.com/css?family=Bad+Script|Playfair+Display&display=swap', false );
+    wp_enqueue_style( 'add_google_fonts', 'https://fonts.googleapis.com/css?family=Bad+Script|Playfair+Display|Crimson+Text&display=swap', false );
 }
 add_action( 'wp_enqueue_scripts', 'add_google_fonts' );
 

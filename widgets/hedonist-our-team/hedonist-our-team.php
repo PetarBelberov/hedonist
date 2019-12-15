@@ -59,15 +59,18 @@ class jpen_Our_team_widget extends WP_Widget {
             // Rest of the widget content
             ?>
             <div class="profile">
-                <div class="img-box">
+                <div class="img-box team-member">
+                    <div class="team-member-overlay"></div>
                     <img src="<?php echo $instance['image-team-member'] ?>" class="img-responsive">
-                    <ul class="text-center">
-                        <li><i class="fa fa-mobile"></i></li>
-                        <p class="team-member-phone"><?php echo $instance['phone-team-member'] ?></p>
-                    </ul>
                 </div>
                 <h1><?php echo $instance['name-team-member'] ?></h1>
                 <h2><?php echo $instance['job-team-member'] ?></h2>
+                <p><?php echo $instance['phone-team-member'] ?></p>
+                <ul class="call-us-button">
+                    <li>
+                        <a href="tel:<?php echo $instance['phone-team-member'] ?>"><i class="fa fa-phone icon"></i></a>
+                    </li>
+                 </ul>
             </div>
             <?php
 

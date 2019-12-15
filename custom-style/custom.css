@@ -8,9 +8,8 @@ body {
     margin-bottom: 0px !important;
 }
 
-
 .home-container {
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
     background-color: #F5F5F5;
 }
 
@@ -37,10 +36,6 @@ body {
     margin-top: 0.5rem;
 }
 
-.sticky .site-branding {
-    /*margin-top: 6px;*/
-}
-
 .site-branding a {
     margin-left: 1rem
 }
@@ -63,7 +58,7 @@ body {
 
 /* Main Menu margin */
 #site-navigation {
-    margin-top: 20px;
+    margin-top: 15px;
     padding-bottom: 1rem;
 }
 
@@ -84,19 +79,17 @@ body {
     font-size: 66px;
     line-height: 92px;
     text-align: center;
-    padding-top: 3rem;
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+    margin: 0.67em 0;
     color: #B1B1B1;
     font-weight: 900;
-}
-
-#foogallery-gallery-35 {
-    padding-top: 5rem;
 }
 
 /* Footer */
 .site-footer {
     background-color: rgba(255,255,255,0);
-    background-image: url(http://dev.wp.com.localhost/wordpress/wp-content/uploads/2019/05/footer-background-lucierre.jpg);
+    background-image: url('../images/footer-background-lucierre.jpg');
     background-position: center top;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -112,8 +105,13 @@ body {
     font-weight: 600;
 }
 
-.site-footer .site-info {
-    /*background-color: #121314;*/
+.site-footer a {
+    color: #c7a77a !important;
+}
+
+.site-footer a:hover {
+    color: #fff !important;
+    text-decoration: none;
 }
 
 #media_image-2 img {
@@ -122,22 +120,19 @@ body {
     padding-bottom: 15px;
 }
 
-#text-2 .textwidget {
+.site-footer .widget_text:last-child .textwidget {
     text-align: center;
     color: #8C8989;
 }
 
-#text-3 {
-    background-color: #161718;
-}
-
-#text-3 .textwidget {
+.site-footer .widget_text .textwidget {
     padding: 20px;
     text-align: center;
     color: #717070;
+    line-height: 2;
 }
 
-#text-3 .textwidget p {
+.site-footer .widget_text .textwidget p {
     margin-bottom: 0rem;
 }
 
@@ -173,6 +168,10 @@ body {
     background: rgba(255, 255, 255, 0.9) !important;
     transition: all 0.5s;
 }
+
+
+  /* Animated scrolling */
+  
 
 
 /* Mobile Menu */
@@ -289,13 +288,11 @@ body {
         padding-top: 50px;
         margin: 3rem 0 0 3rem;
     }
+}
 
-    .services-container {
-        max-width: 32% !important;
-    }
-
-    .services-containers {
-        padding: 0px 20px 0px 20px;
+@media screen and (max-width: 1096px) {
+    .main-navigation li a {
+        padding-right: 1rem;
     }
 }
 
@@ -312,11 +309,11 @@ body {
     }
 }
 
-@media screen and (max-width: 1096px) and (min-width: 920px) {
+/* @media screen and (max-width: 1096px) and (min-width: 920px) {
     .main-navigation li a {
         padding-right: 2rem;
     }
-}
+} */
 
 @media screen and (min-width: 1096px) {
     .main-navigation li a {

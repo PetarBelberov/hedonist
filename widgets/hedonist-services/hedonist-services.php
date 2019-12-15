@@ -58,7 +58,7 @@ class jpen_Service_widget extends WP_Widget {
         ?>
         <a data-toggle="modal" href="#<?php echo $id ?>"><div class="service">
             <img src="<?php echo $instance['image-services'] ?>">
-            <h2><?php echo $instance['title-services'] ?></h2>
+            <h3><?php echo $instance['title-services'] ?></h3>
             <p><?php echo $instance['description-services'] ?></p>
             <?php
             $regex_services = '/(.+ )+([0-9]+\s?[\p{L}]{2,3})/mu';
@@ -82,7 +82,7 @@ class jpen_Service_widget extends WP_Widget {
                                 <div class="col-lg-5">
                                     <!--Header-->
                                     <div class="modal-header">
-                                        <h4 class="modal-title" id="myModalLabel"><?php echo $instance['title-services'] ?></h4>
+                                        <h5 class="modal-title" id="myModalLabel"><?php echo $instance['title-services'] ?></h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">X</span>
                                         </button>

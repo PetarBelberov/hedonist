@@ -4,6 +4,17 @@
 
 .services-container {
     background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 80% !important;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    transition: all 0.5s;
+    padding: 15px 10px 0 10px;
+    border-radius: 15px;
+}
+
+.services .modal-title {
+    margin-bottom: 1rem;
 }
 
 .modal-dialog .col-lg-7 .modal-header {
@@ -45,7 +56,7 @@
 }
 
 .services, .our-team {
-    padding-top: 5rem;
+    padding-top: 3rem;
     font-family: 'Bad Script', cursive;
 }
 
@@ -57,7 +68,7 @@
     text-align: center;
 }
 
-.service h2 {
+.service h3 {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
     color: #BE9359;
@@ -70,15 +81,6 @@
     text-align: center;
     color: #B1B1B1;
     font-weight: 900;
-}
-
-.services-container {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 80% !important;
-    margin: 0 auto;
-    margin-bottom: 2rem;
-    transition: all 0.5s;
-    padding: 15px 0 0 0;
 }
 
 .services-container:hover {
@@ -128,5 +130,16 @@
 
     .modal-dialog {
         padding-top: 2rem;
+    }
+}
+
+/* For desktop: */
+@media screen and (min-width: 768px) {
+    .services-container {
+        max-width: 32% !important;
+    }
+
+    .services-containers {
+        padding: 0px 20px 0px 20px;
     }
 }

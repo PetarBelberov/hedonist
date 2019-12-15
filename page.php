@@ -36,14 +36,14 @@ get_header();
 	</div><!-- #primary -->
 
     <!-- Slider Container -->
-<?php if (!dynamic_sidebar("Slide") ) : endif;?>
+<?php if (!dynamic_sidebar("slide-widget") ) : endif;?>
 
     <!-- Services Container -->
     <div class="services-main">
         <div class="services-title" id="2"><h1><?php echo get_option('services_widget_title') ?></h1></div>
             <div class="services">
                 <div class="row services-containers">
-                        <?php (!dynamic_sidebar("Service") ) ?>
+                        <?php (!dynamic_sidebar("service-widget") ) ?>
                 </div>
             </div>
     </div>
@@ -53,17 +53,11 @@ get_header();
     <div class="our-team-main">
         <div class="our-team-title" id="3"><h1><?php echo get_option('our_team_widget_title') ?></h1></div>
             <div class="row our-team">
-                    <?php if (!dynamic_sidebar("Our Team") ) : endif;?>
+                    <?php if (!dynamic_sidebar("our-team-widget") ) : endif;?>
             </div>
     </div>
     <!-- Home Container -->
-        <?php if (!dynamic_sidebar("Home") ) : endif;?>
-
-    <!-- Test -->
-        <?php if (!dynamic_sidebar("Test") ) : endif;?>
-<script type="text/javascript">
-
-
+        <?php if (!dynamic_sidebar("home-widget") ) : endif;?>
 </script>
 <?php
 get_sidebar();
