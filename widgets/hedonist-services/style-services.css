@@ -33,6 +33,10 @@
     padding: 0px;
 }
 
+#modal-services .modal-header button {
+    outline: none;
+}
+
 .modal-dialog {
     padding-top: 0.5rem;
 }

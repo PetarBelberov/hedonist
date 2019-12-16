@@ -14,13 +14,7 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Bad+Script|Caveat|Marck+Script|Neucha|Pacifico&display=swap" rel="stylesheet">
-
-    <script type="text/javascript">
-        var templateUrl = '<?= get_bloginfo("template_url"); ?>';
-    </script>
     <?php wp_head(); ?>
 </head>
 
@@ -49,23 +43,19 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-<!--			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">--><?php //esc_html_e( 'Primary Menu', 'hedonist' ); ?><!--</button>-->
             <div id="toggle">
                 <img src="<?php bloginfo('template_url'); ?>/images/menu.png">
-<!--                <img src="http://dev.wp.com.localhost/wordpress/wp-content/themes/hedonist/images/menu.png" alt="Show" />-->
+			</div>
+			<div id="popout-2"></div>    
+			<div id="popout">
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-1',
+					'menu_id'        => 'primary-menu',
+					'menu_class'        => 'menu',
+				) );
+				?>
             </div>
-            <div id="popout-2">            </div>
-
-            <div id="popout">
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-                'menu_class'        => 'menu',
-			) );
-			?>
-            </div>
-
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 

@@ -21,7 +21,7 @@ function service_widget() {
     register_sidebar(array(
         'name' => 'Service #2',
         'id' => 'service-widget',
-        'before_widget' => '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 services-container">',
+        'before_widget' => '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 services-container animatable bounceInLeft">',
         'after_widget' => '</div>',
         'before_title' => '<h3 class="service-widget-title">',
         'after_title' => '</h3>',

@@ -20,7 +20,7 @@ function our_team_widget() {
     register_sidebar(array(
         'name' => 'Our Team #3',
         'id' => 'our-team-widget',
-        'before_widget' => '<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 our-team-container">',
+        'before_widget' => '<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 our-team-container animatable bounceInRight">',
         'after_widget' => '</div>',
         'before_title' => '<h3 class="our-team-widget-title">',
         'after_title' => '</h3>',

@@ -116,20 +116,20 @@ function hedonist_widgets_init() {
 }
 add_action( 'widgets_init', 'hedonist_widgets_init' );
 
-function home_widget() {
+function hedonist_home_widget() {
     register_sidebar(array(
         'name' => 'Home #4',
         'id' => 'home-widget',
         'before_widget' => '<div class="home-container">',
         'after_widget' => '</div>',
-        'before_title' => '<h3 class="home-widget-title" id="4">',
+        'before_title' => '<h3 class="home-widget-title animatable fadeIn" id="4">',
         'after_title' => '</h3>',
     ));
 }
-add_action('widgets_init', 'home_widget');
+add_action('widgets_init', 'hedonist_home_widget');
 
 // First footer widget area, located in the footer. Empty by default.
-function footer_widget() {
+function hedonist_footer_widget() {
     register_sidebar(array(
         'name' => __('Footer Widget Area #5', 'hedonist'),
         'id' => 'footer-widget-area',
@@ -140,7 +140,7 @@ function footer_widget() {
         'after_title' => '</h3>',
     ));
 }
-add_action('widgets_init', 'footer_widget');
+add_action('widgets_init', 'hedonist_footer_widget');
 /**
  * Enqueue scripts and styles.
  */
@@ -159,7 +159,10 @@ function hedonist_scripts() {
 
 	wp_enqueue_script( 'custom', get_template_directory_uri() . '/custom-style/custom.js', array('jquery'), 1.1, true );
 
-	wp_enqueue_script( 'animated-scrolling', get_template_directory_uri() . '/custom-style/animated-scrolling.js', array('jquery'), 1.1, true );
+	wp_enqueue_script( 'animated-scrolling', get_template_directory_uri() . '/custom-style/animated-scrolling.css');
+
+	 //Google fonts and icons
+	 wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css?family=Amatic+SC|Bad+Script|Caveat|Marck+Script|Neucha|Pacifico&display=swap' );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -167,45 +170,44 @@ function hedonist_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'hedonist_scripts' );
 
-function custom_enqueue_styles() {
+function hedonist_custom_enqueue_styles() {
 
     wp_enqueue_style( 'custom', get_template_directory_uri() . '/custom-style/custom.css' );
-    // wp_enqueue_style( 'core', get_template_directory_uri() . '/custom.css' );
     wp_enqueue_style( 'fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );
 
 }
-add_action( 'wp_enqueue_scripts', 'custom_enqueue_styles');
+add_action( 'wp_enqueue_scripts', 'hedonist_custom_enqueue_styles');
 
-function add_google_fonts() {
+function hedonist_add_google_fonts() {
     wp_enqueue_style( 'add_google_fonts', 'https://fonts.googleapis.com/css?family=Bad+Script|Playfair+Display|Crimson+Text&display=swap', false );
 }
-add_action( 'wp_enqueue_scripts', 'add_google_fonts' );
+add_action( 'wp_enqueue_scripts', 'hedonist_add_google_fonts' );
 
-function bootstrap_enqueue_styles() {
+function hedonist_bootstrap_enqueue_styles() {
 
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css' );
     wp_enqueue_style( 'core', get_template_directory_uri() . '/style.css' );
 
 }
-add_action( 'wp_enqueue_scripts', 'bootstrap_enqueue_styles');
+add_action( 'wp_enqueue_scripts', 'hedonist_bootstrap_enqueue_styles');
 
-function bootstrap_enqueue_scripts() {
+function hedonist_bootstrap_enqueue_scripts() {
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array( 'jquery' ) );
 }
-add_action( 'wp_enqueue_scripts', 'bootstrap_enqueue_scripts');
+add_action( 'wp_enqueue_scripts', 'hedonist_bootstrap_enqueue_scripts');
 
 
 //Function to add Meta Tags in Header without Plugin
-function add_meta_tags() {
-    echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">';
+function hedonist_add_meta_tags() {
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">';
 }
-add_action('wp_head', 'add_meta_tags');
-//Function to add Meta Tags in Header without Plugin
+add_action('wp_head', 'hedonist_add_meta_tags');
 
-function disable_page_header(  ) {
+function hedonist_disable_page_header(  ) {
     return false;
 }
-add_filter( 'wpex_display_page_header', 'disable_page_header' );
+add_filter( 'wpex_display_page_header', 'hedonist_disable_page_header' );
+
 
 // Add custom widgets and widget areas
 require get_template_directory() . '/widgets/hedonist-our-team/hedonist-our-team.php';

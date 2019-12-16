@@ -56,7 +56,7 @@ class jpen_Slide_widget extends WP_Widget {
         echo $args['before_widget'];
         // Rest of the widget content
         ?>
-        <div class='slider-container'>
+        <div class='slider-container animatable bounceIn'>
             <div class='slider-content'>
                 <div class='slider-title'>
                     <h1 class="title-heading"><?php echo $instance['title'] ?></h1>
