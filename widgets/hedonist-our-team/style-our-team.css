@@ -4,7 +4,7 @@
 
 .our-team-container {
     width: 100%;
-    padding: 0px 20px 0px 20px !important;
+    padding: 15px 20px 0 20px !important;
     margin: 0 auto;
 }
 
@@ -212,7 +212,7 @@ i.red{
 
 /* Call button */
 
-.call-us-button{
+.our-team-container .call-us-button{
     display: flex;
     position: absolute;
     top: 50%;
@@ -281,4 +281,49 @@ i.red{
   .profile .team-member img:hover {
     opacity: 0.5;
     filter: alpha(opacity=50);
+}
+
+/* Team member description - Modal */
+.team-member-description .modal-content {
+    width: auto;
+}
+
+.modal .team-member-description-content {
+    font-family: 'Playfair Display', serif;
+    height: auto !important;
+}
+
+.team-member {
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.team-member-description-call .call-us-button {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+}
+
+.team-member-description .team-member .img-responsive {
+    -webkit-filter: drop-shadow(1px 1px 1px #ccc);
+    filter: drop-shadow(1px 1px 1px #ccc);
+}
+
+#modal-our-team .modal-header {
+    padding: 0px;
+}
+
+#modal-our-team .modal-content .modal-body-big {
+    border: 4px solid #C7A77A;
+    background-color: #e7ccd08c;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 991px) {
+    .team-member-description .modal-content {
+        margin: 0 auto;
+    }
 }

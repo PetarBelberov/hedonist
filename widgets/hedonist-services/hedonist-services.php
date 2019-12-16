@@ -56,15 +56,16 @@ class jpen_Service_widget extends WP_Widget {
 
         // Rest of the widget content
         ?>
-        <a data-toggle="modal" href="#<?php echo $id ?>"><div class="service">
-            <img src="<?php echo $instance['image-services'] ?>">
-            <h3><?php echo $instance['title-services'] ?></h3>
-            <p><?php echo $instance['description-services'] ?></p>
-            <?php
-            $regex_services = '/(.+ )+([0-9]+\s?[\p{L}]{2,3})/mu';
-            preg_match_all($regex_services, $instance['modal_services'], $matches_services, PREG_SET_ORDER);
-            ?>
-        </div>
+        <a data-toggle="modal" href="#<?php echo $id ?>">
+            <div class="service">
+                <img src="<?php echo $instance['image-services'] ?>">
+                <h3><?php echo $instance['title-services'] ?></h3>
+                <p><?php echo $instance['description-services'] ?></p>
+                <?php
+                $regex_services = '/(.+ )+([0-9]+\s?[\p{L}]{2,3})/mu';
+                preg_match_all($regex_services, $instance['modal_services'], $matches_services, PREG_SET_ORDER);
+                ?>
+            </div>
         </a>
         <?php
         echo $args['after_widget'];

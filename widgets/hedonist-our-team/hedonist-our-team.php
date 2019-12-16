@@ -56,13 +56,22 @@ class jpen_Our_team_widget extends WP_Widget {
         if( !empty( $instance['name-team-member'] ) && !empty( $instance['image-team-member']) && !empty( $instance['phone-team-member']) && !empty( $instance['job-team-member'])) {
             echo $args['before_widget'];
 
+            $id = $instance['name-team-member'];
+            $id_arr = explode(' ',trim($id));
+            $id = strtolower($id_arr[0]);
+
             // Rest of the widget content
             ?>
+            
             <div class="profile">
-                <div class="img-box team-member">
-                    <div class="team-member-overlay"></div>
-                    <img src="<?php echo $instance['image-team-member'] ?>" class="img-responsive">
-                </div>
+                <a data-toggle="modal" href="#<?php echo $id ?>">
+                    <div class="team-member-img">
+                        <div class="img-box team-member">
+                            <div class="team-member-overlay"></div>
+                            <img src="<?php echo $instance['image-team-member'] ?>" class="img-responsive">
+                        </div>
+                    </div>
+                </a>
                 <h1><?php echo $instance['name-team-member'] ?></h1>
                 <h2><?php echo $instance['job-team-member'] ?></h2>
                 <p><?php echo $instance['phone-team-member'] ?></p>
@@ -70,11 +79,47 @@ class jpen_Our_team_widget extends WP_Widget {
                     <li>
                         <a href="tel:<?php echo $instance['phone-team-member'] ?>"><i class="fa fa-phone icon"></i></a>
                     </li>
-                 </ul>
+                </ul>
             </div>
+            
             <?php
-
             echo $args['after_widget'];
+            ?>
+            <!-- Modal -->
+            <!-- Modal: modalQuickView -->
+            <?php if(!empty( $instance['modal-description'])) : ?>
+            <div class="modal fade team-member-description" id="<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-lg" id="modal-our-team" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body-big">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!--Header-->
+                                    <div class="modal-header team-member-description-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">X</span>
+                                        </button>
+                                    </div>
+                                    <!--Carousel Wrapper-->
+                                    <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails team-member-description-body" data-ride="carousel">
+                                        <div class="img-box team-member">
+                                            <div class="team-member-overlay"></div>
+                                            <img src="<?php echo $instance['image-team-member'] ?>" class="img-responsive"> 
+                                        </div>
+                                        <div class="carousel-inner team-member-description-content" role="listbox">
+                                           <p><?php echo $instance['modal-description'] ?></p>
+                                        </div> 
+                                                                                 
+                                    </div>
+                                    <!--/.Carousel Wrapper-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endif;
         }
     }
 
@@ -107,6 +152,12 @@ class jpen_Our_team_widget extends WP_Widget {
         if(isset($instance['image-team-member'])) {
             $image = $instance['image-team-member'];
         }
+
+        $modal_description = '';
+        if(isset($instance['modal-description'])) {
+            $modal_description = $instance['modal-description'];
+        }
+
         else {
             $image = null;
         }
@@ -158,6 +209,12 @@ class jpen_Our_team_widget extends WP_Widget {
             echo "You did not upload image field. Required!";
         }
         ?>
+        
+        <!-- Modal description -->
+        <p>
+            <label for="<?php echo $this->get_field_name( 'modal-description' ); ?>"><?php _e( 'Team Member Description:' ); ?></label>
+            <textarea class="widefat" id="<?php echo $this->get_field_id( 'modal-description' ); ?>" name="<?php echo $this->get_field_name( 'modal-description' ); ?>" type="text" ><?php echo esc_attr( $modal_description ); ?></textarea>
+        </p>
         <?php
     }
 }
