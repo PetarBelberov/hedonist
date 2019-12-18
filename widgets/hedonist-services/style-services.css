@@ -21,19 +21,19 @@
     border-bottom: none;
 }
 
-#modal-services .table td, .table th {
+.modal-dialog.modal-lg .table td, .table th {
     padding: 0.2rem 0.75rem 0.2rem 0.75rem
 }
 
-#modal-services .modal-body .table tr {
+.modal-dialog.modal-lg .modal-body .table tr {
     font-size: 14px !important;
 }
 
-#modal-services .modal-header {
+.modal-dialog.modal-lg .modal-header {
     padding: 0px;
 }
 
-#modal-services .modal-header button {
+.modal-dialog.modal-lg .modal-header button {
     outline: none;
 }
 
@@ -41,7 +41,7 @@
     padding-top: 0.5rem;
 }
 
-#modal-services .modal-content .modal-body-big {
+.modal-dialog.modal-lg .modal-content .modal-body-big {
     border: 4px solid #C7A77A;
     background-color: #e7ccd08c;
     padding: 1rem;
@@ -113,7 +113,7 @@
         margin: 0 auto;
     }
 
-    #modal-services .carousel-inner {
+    .modal-dialog.modal-lg .carousel-inner {
         height: 400px;
     }
 }
@@ -124,7 +124,7 @@
         margin: 0 auto;
     }
 
-    #modal-services .carousel-inner {
+    .modal-dialog.modal-lg .carousel-inner {
         height: 400px;
     }
 

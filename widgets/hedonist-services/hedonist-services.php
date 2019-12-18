@@ -42,18 +42,15 @@ class jpen_Service_widget extends WP_Widget {
 
 
     function widget( $args, $instance ) {
-
         // Include css and js stylesheets inside the widget
         wp_enqueue_style( 'style-service', get_template_directory_uri() . '/widgets/hedonist-services/style-services.css' );
 
         if( !empty( $instance['title-services'] ) && !empty( $instance['image-services'])) {
         echo $args['before_widget'];
 
-        // Create id attribute from the first word of $instance['title-services']
-        $id = $instance['title-services'];
-        $id_arr = explode(' ',trim($id));
-        $id = strtolower($id_arr[0]);
-
+        // Returns the crc32 checksum of services title as unique positive integer
+        $id = 'id-'. abs(crc32($instance['title-services']));
+       
         // Rest of the widget content
         ?>
         <a data-toggle="modal" href="#<?php echo $id ?>">
@@ -69,27 +66,29 @@ class jpen_Service_widget extends WP_Widget {
         </a>
         <?php
         echo $args['after_widget'];
-
+       
         ?>
             <!-- Modal -->
             <!-- Modal: modalQuickView -->
             <?php if(!empty( $matches_services) && !empty( $instance['modal_image_1'])) { ?>
+            <?php  ?>
             <div class="modal fade" id="<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
-                <div class="modal-dialog modal-lg" id="modal-services" role="document">
+                <div class="modal-dialog modal-lg" id="modal-services-<?php echo $id; ?>" role="document">
                     <div class="modal-content">
                         <div class="modal-body-big">
                             <div class="row">
                                 <div class="col-lg-5">
                                     <!--Header-->
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="myModalLabel"><?php echo $instance['title-services'] ?></h5>
+                                        <h5 class="modal-title" id="myModalLabel-<?php echo $id ?>"><?php echo $instance['title-services'] ?></h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">X</span>
                                         </button>
                                     </div>
                                     <!--Carousel Wrapper-->
-                                    <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
+                                    <?php  ?>
+                                    <div id="carousel-thumb-<?php echo $id ?>" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
                                         <!--Slides-->
                                         <div class="carousel-inner" role="listbox">
                                             <?php
@@ -135,13 +134,12 @@ class jpen_Service_widget extends WP_Widget {
                                                 !empty( $instance['modal_image_1'] && !empty( $instance['modal_image_3'] ) ||
                                                 !empty( $instance['modal_image_2'] && !empty( $instance['modal_image_3'] ))))) {
                                         ?>
-<!--                                                <li data-target="#carousel-thumb" data-slide-to="0" class="active"></li>-->
 
-                                        <a class="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">
+                                        <a class="carousel-control-prev" href="#carousel-thumb-<?php echo $id ?>" role="button" data-slide="prev">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Previous</span>
                                         </a>
-                                        <a class="carousel-control-next" href="#carousel-thumb" role="button" data-slide="next">
+                                        <a class="carousel-control-next" href="#carousel-thumb-<?php echo $id ?>" role="button" data-slide="next">
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Next</span>
                                         </a>
@@ -153,19 +151,19 @@ class jpen_Service_widget extends WP_Widget {
                                             <?php
                                             if( !empty( $instance['modal_image_1'] )) {
                                                 ?>
-                                                <li data-target="#carousel-thumb" data-slide-to="0" class="active"></li>
+                                                <li data-target="#carousel-thumb-<?php echo $id ?>" data-slide-to="0" class="active"></li>
                                                 <?php
                                             }
 
                                             if( !empty( $instance['modal_image_2'] )) {
                                                 ?>
-                                                <li data-target="#carousel-thumb" data-slide-to="1"></li>
+                                                <li data-target="#carousel-thumb-<?php echo $id ?>" data-slide-to="1"></li>
                                                 <?php
                                             }
 
                                             if( !empty( $instance['modal_image_3'] )) {
                                                 ?>
-                                                <li data-target="#carousel-thumb" data-slide-to="2"></li>
+                                                <li data-target="#carousel-thumb-<?php echo $id ?>" data-slide-to="2"></li>
                                                 <?php
                                             }
                                             ?>
@@ -210,6 +208,7 @@ class jpen_Service_widget extends WP_Widget {
     public function update( $new_instance, $old_instance ) {
 
         return $new_instance;
+
     }
 
     public function form( $instance )
@@ -233,8 +232,10 @@ class jpen_Service_widget extends WP_Widget {
         else {
             $image = null;
         }
+        
 
         // Modal
+
         $modal_image_1 = '';
         if(isset($instance['modal_image_1'])) {
             $modal_image_1 = $instance['modal_image_1'];
@@ -255,13 +256,7 @@ class jpen_Service_widget extends WP_Widget {
             $modal_services = $instance['modal_services'];
         }
 
-//        $modal_prices = '';
-//        if(isset($instance['modal_prices'])) {
-//            $modal_prices = $instance['modal_prices'];
-//        }
-
         ?>
-
         <!-- Displaying the fields in the administrator form -->
 
         <!-- Title field -->
@@ -329,9 +324,6 @@ class jpen_Service_widget extends WP_Widget {
             Service - 200 USD" name="<?php echo $this->get_field_name( 'modal_services' ); ?>" id="<?php echo $this->get_field_id( 'modal_services' ); ?>" type="text" value="<?php echo esc_attr( $modal_services ); ?>" rows="4" cols="40"><?php echo esc_attr( $modal_services ); ?></textarea>
         </span>
         <?php
-        if(!isset($modal_prices) || trim($modal_prices) == '') {
-            echo "You did not fill prices area field. Required!";
-        }
     }
 }
 
