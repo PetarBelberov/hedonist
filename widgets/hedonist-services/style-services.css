@@ -108,24 +108,24 @@
 }
 
 @media screen and (max-width: 991px) {
-    .modal-content {
+    /* .modal-content {
         width: 300px;
         margin: 0 auto;
     }
 
     .modal-dialog.modal-lg .carousel-inner {
         height: 400px;
-    }
+    } */
 }
 
 @media screen and (max-width: 400px) {
     .modal-content {
-        width: 300px;
+        width: 100%;
         margin: 0 auto;
     }
 
     .modal-dialog.modal-lg .carousel-inner {
-        height: 400px;
+        height: auto;
     }
 
     .modal-dialog {

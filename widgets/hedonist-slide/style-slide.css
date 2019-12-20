@@ -10,6 +10,7 @@
 }
 
 .title-heading {
+    color: #be9359;
     font-size: 75px;
     line-height: 110px;
     font-family: 'Playfair Display', serif;
@@ -20,7 +21,8 @@
 }
 
 .slider-text p {
-    color: #686868;
+    color: #be9359;
+    /* color: #686868; */
     font-size: 17px;
     margin-top: 30px;
     font-family: 'Bad Script', cursive;
@@ -29,9 +31,9 @@
 
 /* Button slider */
 .slider-button {
-    display: inline;
-    float: left;
-    margin-top: 50px;
+    /* display: inline;
+    float: left; */
+    margin-top: 100px;
 }
 
 .slider-button-link {

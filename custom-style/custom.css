@@ -64,6 +64,7 @@ body {
 
 .slider-content  {
     margin: 3rem 0 0 1rem;
+    padding-top: 50px;
 }
 
 .slider-separator {
@@ -652,7 +653,6 @@ body {
     }
 
     .slider-content {
-        padding-top: 50px;
         margin: 3rem 0 0 3rem;
     }
 }
