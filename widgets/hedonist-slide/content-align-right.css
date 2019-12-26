@@ -6,11 +6,10 @@
         margin-right: 3rem;
     }
 }
-.slider-title {
+.slider-title, .slider-logo {
     text-align: right;
 }
 .slider-separator {
-    /* float: right; */
     margin-left: auto;
 }
 .slider-text {

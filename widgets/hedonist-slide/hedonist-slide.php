@@ -58,9 +58,15 @@ class jpen_Slide_widget extends WP_Widget {
         ?>
         <div class='slider-container animatable bounceIn'>
             <div class='slider-content'>
+            <?php if( !empty( $instance['title'] ) ) : ?>
                 <div class='slider-title'>
                     <h1 class="title-heading"><?php echo $instance['title'] ?></h1>
                 </div>
+            <?php elseif (isset( $instance['slider_logo'] ) ) :  ?>
+                <div class='slider-logo'>
+                    <img src="<?php echo $instance['slider_logo'] ?>">
+                </div>
+            <?php endif; ?>
                 <div class='slider-separator'></div>
                 <div class='slider-text'>
                     <p><?php echo $instance['description'] ?></p>
@@ -76,7 +82,6 @@ class jpen_Slide_widget extends WP_Widget {
     .slider-container {
         background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ),url("<?php echo $instance['image'] ?>") center;
         background-size: cover;
-        /*background-image: url("");*/
     }
     <?php
         if ($instance['content-align'] == "Centered") {
@@ -107,6 +112,11 @@ class jpen_Slide_widget extends WP_Widget {
             $title = $instance['title'];
         }
 
+        $slider_logo = '';
+        if(isset($instance['slider_logo'])) {
+            $slider_logo = $instance['slider_logo'];
+        }
+
         $description = '';
         if( !empty( $instance['description'] ) ) {
             $description = $instance['description'];
@@ -126,23 +136,26 @@ class jpen_Slide_widget extends WP_Widget {
         if(isset($instance['image'])) {
             $image = $instance['image'];
         }
-        else {
-//            $image = null;
-        }
 
         $align = $instance['content-align'];
         ?>
 
         <!-- Displaying the fields in the administrator form -->
 
-        <!-- Title field -->
+        <!-- Title field & Image field -->
         <p>
             <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
+
+        <p>
+            <label for="<?php echo $this->get_field_name( 'slider_logo' ); ?>"><?php _e( 'Logo:' ); ?></label>
+            <input name="<?php echo $this->get_field_name( 'slider_logo' ); ?>" id="<?php echo $this->get_field_id( 'slider_logo' ); ?>" class="widefat" type="text" size="36"  value="<?php echo esc_url( $slider_logo ); ?>" />
+            <input class="upload_image_button" type="button" value="Upload Logo" />
+        </p>
         <?php
-        if(!isset($title) || trim($title) == '') {
-            echo "You did not fill out title field.";
+        if((!isset($title) || trim($title) == '') && ((!isset($slider_logo) || trim($slider_logo) == '' ))) {
+            echo "You did not fill out either title field or logo image.";
         }
         ?>
 
@@ -187,7 +200,7 @@ class jpen_Slide_widget extends WP_Widget {
         </p>
         <?php
         if(!isset($image) || trim($image) == '') {
-            echo "You did not upload image field. </br>";
+            echo "You did not upload image. </br>";
         }
         ?>
 

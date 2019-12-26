@@ -543,6 +543,13 @@ body {
 
   /* Animated scrolling */
 
+  /* Add custom cyrillic font */
+  @font-face {
+    font-family: "Azbuka03_D";
+    src: url(../fonts/Azbuka03_D.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* Mobile Menu */
 @media screen and (min-width: 901px) {

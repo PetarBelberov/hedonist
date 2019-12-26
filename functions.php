@@ -162,7 +162,7 @@ function hedonist_scripts() {
 	wp_enqueue_script( 'animated-scrolling', get_template_directory_uri() . '/custom-style/animated-scrolling.css');
 
 	 //Google fonts and icons
-	 wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css?family=Amatic+SC|Bad+Script|Caveat|Marck+Script|Neucha|Pacifico&display=swap' );
+	 wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css?family=Amatic+SC|Bad+Script|Caveat|Marck+Script|Neucha|Pacifico|Pinyon+Script&display=swap' );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

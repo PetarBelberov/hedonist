@@ -1,7 +1,12 @@
 /* Home page slider */
+.slide {
+    height: auto;
+    width: 100%;
+}
+
 .slider-container {
     /* Full height */
-    height: 88vh;
+    height: 100vh;
 
     /* Center and scale the image nicely */
     background-position: center;
@@ -13,11 +18,16 @@
     color: #be9359;
     font-size: 75px;
     line-height: 110px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Pinyon Script', cursive;
+    /* font-family: "Azbuka03_D"; */
     font-weight: 400;
     line-height: 1.4;
     letter-spacing: 0px;
     font-style: normal;
+}
+
+.slider-logo {
+    margin: 50px 0;
 }
 
 .slider-text p {
@@ -31,9 +41,7 @@
 
 /* Button slider */
 .slider-button {
-    /* display: inline;
-    float: left; */
-    margin-top: 100px;
+    margin-top: 10rem;
 }
 
 .slider-button-link {

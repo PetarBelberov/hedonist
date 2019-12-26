@@ -1,20 +1,36 @@
-jQuery(document).ready(function($) {
-    $(document).on("click", ".upload_image_button", function() {
-        jQuery.data(document.body, 'prevElement', $(this).prev());
+jQuery(document).ready(function($){
+    $(document).on("click", ".upload_image_button", function(e) {
+        var custom_uploader;
 
-        window.send_to_editor = function(html) {
-            var imgurl = jQuery('img',html).attr('src');
-            var inputText = jQuery.data(document.body, 'prevElement');
+        // Get the previous text input field where image URL would be stored
+        var text_field_url = $(e.target).prev("input[type=text]");
+        e.preventDefault();
 
-            if(inputText != undefined && inputText != '')
-            {
-                inputText.val(imgurl);
-            }
+        //If the uploader object has already been created, reopen the dialog
+        if (custom_uploader) {
+            custom_uploader.open();
+            return;
+        }
 
-            tb_remove();
-        };
+        //Extend the wp.media object
+        custom_uploader = wp.media.frames.file_frame = wp.media({
+            title: 'Choose Image',
+            button: {
+                text: 'Choose Image'
+            },
+            multiple: true
+        });
 
-        tb_show('', 'media-upload.php?type=image&TB_iframe=true');
-        return false;
+        //When a file is selected, grab the URL and set it as the text field's value
+        custom_uploader.on('select', function() {
+            attachment = custom_uploader.state().get('selection').first().toJSON();
+            text_field_url.val(attachment.url);
+
+            // Trigger change to enable the 'Saved' widget button 
+            text_field_url.trigger("change"); 
+         });
+
+        //Open the uploader dialog
+        custom_uploader.open();
     });
 });
