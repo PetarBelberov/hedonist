@@ -41,14 +41,6 @@ class jpen_Our_team_widget extends WP_Widget {
         add_action( 'admin_enqueue_scripts', array( $this, 'mfc_assets' ) );
     }
 
-    public function mfc_assets()
-    {
-        wp_enqueue_script('media-upload');
-        wp_enqueue_script('thickbox');
-        wp_enqueue_script( 'hedonist-media-upload', get_template_directory_uri() . '/custom-style/hedonist-media-upload.js', array('jquery'), 1.1, true );
-        wp_enqueue_style('thickbox');
-    }
-
     function widget( $args, $instance ) {
         // Include css and js stylesheets inside the widget
         wp_enqueue_style( 'style-our-team', get_template_directory_uri() . '/widgets/hedonist-our-team/style-our-team.css' );

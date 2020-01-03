@@ -168,6 +168,15 @@ function hedonist_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'hedonist_scripts' );
 
+// Custom styles and scripts to all admin pages
+function hedonist_admin_scripts() {
+	wp_enqueue_script('media-upload');
+	wp_enqueue_script('thickbox');
+	wp_enqueue_script( 'hedonist-media-upload', get_template_directory_uri() . '/custom-style/hedonist-media-upload.js', array('jquery'), 1.1, true );
+	wp_enqueue_style('thickbox');
+}
+add_action('admin_enqueue_scripts', 'hedonist_admin_scripts');
+
 function hedonist_custom_enqueue_styles() {
 
     wp_enqueue_style( 'custom', get_template_directory_uri() . '/custom-style/custom.css' );
