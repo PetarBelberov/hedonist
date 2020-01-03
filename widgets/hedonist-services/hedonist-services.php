@@ -44,7 +44,7 @@ class jpen_Service_widget extends WP_Widget {
     function widget( $args, $instance ) {
         // Include css and js stylesheets inside the widget
         wp_enqueue_style( 'style-service', get_template_directory_uri() . '/widgets/hedonist-services/style-services.css' );
-
+        
         if( !empty( $instance['title-services'] ) && !empty( $instance['image-services'])) {
         echo $args['before_widget'];
 
@@ -55,11 +55,11 @@ class jpen_Service_widget extends WP_Widget {
         ?>
         <a data-toggle="modal" href="#<?php echo $id ?>">
             <div class="service">
-                <img src="<?php echo $instance['image-services'] ?>">
+                <img src="<?php echo $instance['image-services'] ?>" alt="image-services">
                 <h3><?php echo $instance['title-services'] ?></h3>
                 <p><?php echo $instance['description-services'] ?></p>
                 <?php
-                $regex_services = '/(.+ )+([0-9]+\s?[\p{L}]{2,3})/mu';
+                $regex_services = '/\{(.*)\}\s*|(.+ )+([0-9]+\s?[\p{L}]{2,3})/mu';
                 preg_match_all($regex_services, $instance['modal_services'], $matches_services, PREG_SET_ORDER);
                 ?>
             </div>
@@ -178,17 +178,15 @@ class jpen_Service_widget extends WP_Widget {
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
-                                                <th>#</th>
                                                 <th>Услуги</th>
-                                                <th>Цена</th>
+                                                <th>Цена&emsp;</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <?php foreach ($matches_services as $key => $match) {?>
+                                            <?php foreach ($matches_services as $match) {?>
                                                 <tr>
-                                                    <th scope="row"><?php echo $key + 1 ?></th>
-                                                    <td><?php echo $match[1] ?></td>
-                                                    <td><?php echo $match[2] ?></td>
+                                                    <td class="modal-services-subheaders"><?php echo "<u>" . $match[1] . "</u>", ' ', $match[2], PHP_EOL; ?></td>
+                                                    <td><?php echo $match[3]; ?></td>
                                                 </tr>
                                             <?php } ?>
                                             </tbody>
@@ -319,6 +317,7 @@ class jpen_Service_widget extends WP_Widget {
         <span class="modal-services-textarea">
             <label for="<?php echo $this->get_field_name( 'modal_services' ); ?>"><?php _e( 'List all services. Each service must be in a new line' ); ?></label>
             <textarea class="widefat" placeholder="Example:
+            {Header}
             Service 50 лв
             Service 100 EU
             Service - 200 USD" name="<?php echo $this->get_field_name( 'modal_services' ); ?>" id="<?php echo $this->get_field_id( 'modal_services' ); ?>" type="text" value="<?php echo esc_attr( $modal_services ); ?>" rows="4" cols="40"><?php echo esc_attr( $modal_services ); ?></textarea>

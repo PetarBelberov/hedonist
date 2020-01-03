@@ -40,6 +40,10 @@ body {
     margin-left: 1rem
 }
 
+.site-branding .site-description {
+    display: none;
+}
+
 /* Logo width */
 .site-branding a img {
     width: 60%;
@@ -190,28 +194,28 @@ body {
   }
   
   
-  .animated { 
-    /* show objects being animated */
-    visibility: visible;
-    
-    -webkit-animation-fill-mode: both;
-    -moz-animation-fill-mode: both;
-    -ms-animation-fill-mode: both;
-    -o-animation-fill-mode: both;
-    animation-fill-mode: both;
-    
-    -webkit-animation-duration: 1s;
-    -moz-animation-duration: 1s;
-    -ms-animation-duration: 1s;
-    -o-animation-duration: 1s;
-    animation-duration: 1s;
-  
-    -webkit-animation-play-state: running;
-    -moz-animation-play-state: running;
-    -ms-animation-play-state: running;
-    -o-animation-play-state: running;
-    animation-play-state: running;
-  }
+.animated { 
+/* show objects being animated */
+visibility: visible;
+
+-webkit-animation-fill-mode: both;
+-moz-animation-fill-mode: both;
+-ms-animation-fill-mode: both;
+-o-animation-fill-mode: both;
+animation-fill-mode: both;
+
+-webkit-animation-duration: 1s;
+-moz-animation-duration: 1s;
+-ms-animation-duration: 1s;
+-o-animation-duration: 1s;
+animation-duration: 1s;
+
+-webkit-animation-play-state: running;
+-moz-animation-play-state: running;
+-ms-animation-play-state: running;
+-o-animation-play-state: running;
+animation-play-state: running;
+}
   
   /* CSS Animations */
   
@@ -503,45 +507,155 @@ body {
       }
   }  
   
-  .animated.animationDelay{
-      animation-delay:.4s;
-      -webkit-animation-delay:.4s;
-  }
-  .animated.animationDelayMed{
-      animation-delay:1.2s;
-      -webkit-animation-delay:1.2s;
-  }
-  .animated.animationDelayLong{
-      animation-delay:1.6s;
-      -webkit-animation-delay:1.6s;
-  }
-  
-  .animated.bounceIn {
-      -webkit-animation-name: bounceIn;
-      -moz-animation-name: bounceIn;
-      -o-animation-name: bounceIn;
-      animation-name: bounceIn;
-  }
-  .animated.bounceInRight {
-      -webkit-animation-name: bounceInRight;
-      -moz-animation-name: bounceInRight;
-      -o-animation-name: bounceInRight;
-      animation-name: bounceInRight;
-  }
-  .animated.bounceInLeft {
-      -webkit-animation-name: bounceInLeft;
-      -moz-animation-name: bounceInLeft;
-      -o-animation-name: bounceInLeft;
-      animation-name: bounceInLeft;
-  }
-  .animated.fadeIn {
-      -webkit-animation-name: fadeIn;
-      -moz-animation-name: fadeIn;
-      -o-animation-name: fadeIn;
-      animation-name: fadeIn;
-  }
+.animated.animationDelay{
+    animation-delay:.4s;
+    -webkit-animation-delay:.4s;
+}
+.animated.animationDelayMed{
+    animation-delay:1.2s;
+    -webkit-animation-delay:1.2s;
+}
+.animated.animationDelayLong{
+    animation-delay:1.6s;
+    -webkit-animation-delay:1.6s;
+}
 
-  /* Animated scrolling */
+.animated.bounceIn {
+    -webkit-animation-name: bounceIn;
+    -moz-animation-name: bounceIn;
+    -o-animation-name: bounceIn;
+    animation-name: bounceIn;
+}
+.animated.bounceInRight {
+    -webkit-animation-name: bounceInRight;
+    -moz-animation-name: bounceInRight;
+    -o-animation-name: bounceInRight;
+    animation-name: bounceInRight;
+}
+.animated.bounceInLeft {
+    -webkit-animation-name: bounceInLeft;
+    -moz-animation-name: bounceInLeft;
+    -o-animation-name: bounceInLeft;
+    animation-name: bounceInLeft;
+}
+.animated.fadeIn {
+    -webkit-animation-name: fadeIn;
+    -moz-animation-name: fadeIn;
+    -o-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+/* Animated scrolling */
+
+/* Privacy Policy */
+#privacy-policy-back-button {
+    float: right;
+    margin-right: 1rem;
+}
+
+#privacy-policy-back-button a span {
+    font-size: 25px;
+}
+
+.privacy-policy #primary {
+    margin-top: 5rem;
+}
+
+.privacy-policy .entry-content {
+    padding: 1rem;
+}
+
+/* 404 page */
+#notfound {
+    position: relative;
+    height: 100vh;
+}
+
+#notfound .notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.notfound {
+    max-width: 920px;
+    width: 100%;
+    line-height: 1.4;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.notfound .notfound-404 {
+    position: absolute;
+    height: 100px;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.notfound .notfound-404 h1 {
+    font-family: 'Maven Pro', sans-serif;
+    color: #edd3da;
+    font-weight: 900;
+    font-size: 276px;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.notfound h2 {
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 46px;
+    color: #c7a77a;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.notfound p {
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+.notfound a {
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: white;
+    color: #404040;
+    display: inline-block;
+    padding: 16px 38px;
+    border: 2px solid transparent;
+    border-radius: 40px;
+    color: #fff;
+    border: 1px solid #c7a77a;
+    font-weight: 400;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+    color: #404040 !important;
+}
+
+.notfound a:hover {
+    background-color: #fff;
+    border-color: #edd3da;
+    color: #987982 !important;;
+    text-decoration: none;
+}
 
   /* Add custom cyrillic font */
   @font-face {

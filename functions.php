@@ -159,8 +159,6 @@ function hedonist_scripts() {
 
 	wp_enqueue_script( 'custom', get_template_directory_uri() . '/custom-style/custom.js', array('jquery'), 1.1, true );
 
-	wp_enqueue_script( 'animated-scrolling', get_template_directory_uri() . '/custom-style/animated-scrolling.css');
-
 	 //Google fonts and icons
 	 wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css?family=Amatic+SC|Bad+Script|Caveat|Marck+Script|Neucha|Pacifico|Pinyon+Script&display=swap' );
 
@@ -197,7 +195,7 @@ function hedonist_bootstrap_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'hedonist_bootstrap_enqueue_scripts');
 
 
-//Function to add Meta Tags in Header without Plugin
+//Function to add Meta Tags in Header
 function hedonist_add_meta_tags() {
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">';
 }
@@ -208,6 +206,30 @@ function hedonist_disable_page_header(  ) {
 }
 add_filter( 'wpex_display_page_header', 'hedonist_disable_page_header' );
 
+
+//Adding the Open Graph in the Language Attributes
+function hedonist_add_opengraph_doctype( $output ) {
+	return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
+}
+add_filter('language_attributes', 'hedonist_add_opengraph_doctype');
+
+//Lets add Open Graph Meta Info
+function hedonist_insert_fb_in_head() {
+global $post;
+if ( !is_singular()) //if it is not a post or a page
+	return;
+	echo '<meta property="fb:admins" content="2570983442981797"/>';
+	echo '<meta property="og:title" content="Естетичен център за здраве и красота - Люсиер"/>';
+	echo '<meta property="og:type" content="website"/>';
+	echo '<meta property="og:description" content="Люсиер се намира в гр. София, бул. Инж. Иван Иванов 21"/>';
+	echo '<meta property="og:url" content="' . get_permalink() . '"/>';
+	echo '<meta property="og:site_name" content="' . get_bloginfo('name') . '"/>';
+	echo '<meta property="fb:app_id" content="1062495544089614"/>';
+	echo '<meta property="og:image" content="' . get_the_post_thumbnail_url() . '"/>';
+echo "
+";
+}
+add_action( 'wp_head', 'hedonist_insert_fb_in_head', 5 );
 
 // Add custom widgets and widget areas
 require get_template_directory() . '/widgets/hedonist-our-team/hedonist-our-team.php';
@@ -241,3 +263,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// force_ssl_admin
+define('FORCE_SSL', true);
+define('FORCE_SSL_ADMIN',true);

@@ -64,7 +64,7 @@ class jpen_Slide_widget extends WP_Widget {
                 </div>
             <?php elseif (isset( $instance['slider_logo'] ) ) :  ?>
                 <div class='slider-logo'>
-                    <img src="<?php echo $instance['slider_logo'] ?>">
+                    <img src="<?php echo $instance['slider_logo'] ?>" alt="slider-logo">
                 </div>
             <?php endif; ?>
                 <div class='slider-separator'></div>

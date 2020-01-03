@@ -312,11 +312,11 @@ i.red{
     filter: drop-shadow(1px 1px 1px #ccc);
 }
 
-#modal-our-team .modal-header {
+.modal-our-team .modal-header {
     padding: 0px;
 }
 
-#modal-our-team .modal-content .modal-body-big {
+.modal-our-team .modal-content .modal-body-big {
     border: 4px solid #C7A77A;
     background-color: #e7ccd08c;
     padding: 1rem;

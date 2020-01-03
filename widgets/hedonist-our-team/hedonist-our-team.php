@@ -68,7 +68,7 @@ class jpen_Our_team_widget extends WP_Widget {
                     <div class="team-member-img">
                         <div class="img-box team-member">
                             <div class="team-member-overlay"></div>
-                            <img src="<?php echo $instance['image-team-member'] ?>" class="img-responsive">
+                            <img src="<?php echo $instance['image-team-member'] ?>" class="img-responsive" alt="image-team-member">
                         </div>
                     </div>
                 </a>
@@ -90,7 +90,7 @@ class jpen_Our_team_widget extends WP_Widget {
             <?php if(!empty( $instance['modal-description'])) : ?>
             <div class="modal fade team-member-description" id="<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
-                <div class="modal-dialog modal-lg" id="modal-our-team" role="document">
+                <div class="modal-dialog modal-lg modal-our-team" role="document">
                     <div class="modal-content">
                         <div class="modal-body-big">
                             <div class="row">
@@ -102,10 +102,10 @@ class jpen_Our_team_widget extends WP_Widget {
                                         </button>
                                     </div>
                                     <!--Carousel Wrapper-->
-                                    <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails team-member-description-body" data-ride="carousel">
+                                    <div class="carousel slide carousel-fade carousel-thumbnails team-member-description-body" data-ride="carousel">
                                         <div class="img-box team-member">
                                             <div class="team-member-overlay"></div>
-                                            <img src="<?php echo $instance['image-team-member'] ?>" class="img-responsive"> 
+                                            <img src="<?php echo $instance['image-team-member'] ?>" class="img-responsive" alt="image-team-member"> 
                                         </div>
                                         <div class="carousel-inner team-member-description-content" role="listbox">
                                            <p><?php echo $instance['modal-description'] ?></p>

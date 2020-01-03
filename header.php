@@ -20,7 +20,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'hedonist' ); ?></a>
+	
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding" id="1">
@@ -41,22 +41,39 @@
 				<p class="site-description"><?php echo $hedonist_description; /* WPCS: xss ok. */ ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-            <div id="toggle">
-                <img src="<?php bloginfo('template_url'); ?>/images/menu.png">
-			</div>
-			<div id="popout-2"></div>    
-			<div id="popout">
-				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-					'menu_class'        => 'menu',
-				) );
-				?>
-            </div>
-		</nav><!-- #site-navigation -->
+		<?php 
+		
+		// Checks whether is it privacy policy page or 404 page
+		$privacy_policy_page_id = get_option( 'wp_page_for_privacy_policy' );
+		if ($privacy_policy_page_id == get_the_ID() || is_404()) {
+			?>
+			<nav id="site-navigation" class="main-navigation">
+				<div id="privacy-policy-back-button">
+					<a href="<?php echo home_url(); ?>"><span class="dashicons dashicons-admin-home"></span></a>
+				</div>
+			</nav><!-- #site-navigation -->
+			<?php
+		}
+		
+		else {
+			?>
+			<nav id="site-navigation" class="main-navigation">
+				<div id="toggle">
+					<img src="<?php bloginfo('template_url'); ?>/images/menu.png" alt="menu-icon">
+				</div>
+				<div id="popout-2"></div>    
+				<div id="popout">
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+						'menu_class'        => 'menu',
+					) );
+					?>
+				</div>
+			</nav><!-- #site-navigation -->
+		<?php } ?>
+		
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
