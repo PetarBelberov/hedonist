@@ -41,9 +41,13 @@ class jpen_Our_team_widget extends WP_Widget {
         add_action( 'admin_enqueue_scripts', array( $this, 'mfc_assets' ) );
     }
 
-    function widget( $args, $instance ) {
+    public function mfc_assets()
+    {
         // Include css and js stylesheets inside the widget
         wp_enqueue_style( 'style-our-team', get_template_directory_uri() . '/widgets/hedonist-our-team/style-our-team.css' );
+    }
+
+    function widget( $args, $instance ) {
 
         if( !empty( $instance['name-team-member'] ) && !empty( $instance['image-team-member']) && !empty( $instance['phone-team-member']) && !empty( $instance['job-team-member'])) {
             echo $args['before_widget'];
