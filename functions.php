@@ -197,6 +197,7 @@ add_action( 'wp_enqueue_scripts', 'hedonist_bootstrap_enqueue_scripts');
 
 //Function to add Meta Tags in Header
 function hedonist_add_meta_tags() {
+	echo '<meta name="description" content="' . get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ) . '"/>';
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">';
 }
 add_action('wp_head', 'hedonist_add_meta_tags');
