@@ -44,7 +44,7 @@
 		<?php 
 		
 		// Checks whether is it privacy policy page or 404 page
-		$privacy_policy_page_id = get_option( 'wp_page_for_privacy_policy' );
+		$privacy_policy_page_id = (int)get_option( 'wp_page_for_privacy_policy' );
 		if ($privacy_policy_page_id == get_the_ID() || is_404()) {
 			?>
 			<nav id="site-navigation" class="main-navigation">
