@@ -73,7 +73,13 @@
 				</div>
 			</nav><!-- #site-navigation -->
 		<?php } ?>
-		
+		<?php 
+		// Insert schema markup
+		$schemamarkup = get_post_meta(get_the_ID(), 'schema-markup', true);
+		if(!empty($schemamarkup)) {
+		  echo $schemamarkup;
+		}
+		?>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
