@@ -208,6 +208,8 @@ add_action( 'wp_enqueue_scripts', 'hedonist_bootstrap_enqueue_scripts');
 function hedonist_add_meta_tags() {
 	echo '<meta name="description" content="' . get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ) . '"/>';
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">';
+	// Google ownership authentication
+	echo '<meta name="google-site-verification" content="Ad3aNi6GaRzJ141hF9UVP7Ez_6Xng2WFYUT1KjsSoqM" />';
 }
 add_action('wp_head', 'hedonist_add_meta_tags');
 
@@ -240,6 +242,17 @@ echo "
 ";
 }
 add_action( 'wp_head', 'hedonist_insert_fb_in_head', 5 );
+ 
+/* Remove archives */
+function meks_remove_wp_archives(){
+  //If we are on category or tag or date or author archive
+  if( is_category() || is_tag() || is_date() || is_author() ) {
+    global $wp_query;
+    $wp_query->set_404(); //set to 404 not found page
+  }
+}
+
+add_action('template_redirect', 'meks_remove_wp_archives');
 
 // Add custom widgets and widget areas
 require get_template_directory() . '/widgets/hedonist-our-team/hedonist-our-team.php';

@@ -37,7 +37,7 @@ get_header();
 
                 <!-- Services Container -->
                 <div class="services-main">
-                    <div class="services-title" id="2"><h1><?php echo get_option('services_widget_title') ?></h1></div>
+                    <div class="services-title" id="2"><p><?php echo get_option('services_widget_title') ?></p></div>
                         <div class="services">
                             <div class="row services-containers">
                                     <?php (!dynamic_sidebar("service-widget") ) ?>
@@ -48,7 +48,7 @@ get_header();
                 <!-- Our Team Container -->
                 <?php include_once( get_template_directory() . '/widgets/hedonist-our-team/hedonist-our-team.php' ); ?>
                 <div class="our-team-main">
-                    <div class="our-team-title" id="3"><h1><?php echo get_option('our_team_widget_title') ?></h1></div>
+                    <div class="our-team-title" id="3"><p><?php echo get_option('our_team_widget_title') ?></p></div>
                         <div class="row our-team">
                                 <?php if (!dynamic_sidebar("our-team-widget") ) : endif;?>
                         </div>

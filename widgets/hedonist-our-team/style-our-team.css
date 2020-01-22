@@ -22,15 +22,11 @@ h6.description{
 
 .profile{
     margin-top: 25px;
-    /*width: 200px;*/
     height: 320px;
-    /*padding-bottom: 50px;*/
-    /*width: 60%;*/
-
     margin: 0 auto;
 }
 
-.profile h1{
+.profile .team-member-name {
     font-weight: 600;
     color: #c7a77a;
     font-size: 20px;
@@ -38,15 +34,16 @@ h6.description{
     font-family: 'Bad Script';
 }
 
-.profile h2{
+.profile .team-member-job {
     font-size: 14px;
     font-weight: lighter;
     margin-top: 10px;
     font-family: 'Playfair Display', serif;
     letter-spacing: 1px;
+    margin-bottom: 0;
 }
 
-.profile p{
+.profile .team-member-phone {
     color: #c7a77a;
     font-size: 15px;
     font-weight: 600;
@@ -54,80 +51,6 @@ h6.description{
     font-family: 'Crimson Text', serif;
     letter-spacing: 1px;
 }
-
-/* .profile .team-member .text-center {
-    margin: 1em 0;
-}   
-
-.profile .team-member .text-center a{
-    width: 100px;
-} 
-
-.profile .team-member .text-center a img:hover{
-    cursor: default;
-} */
-/* .team-member {
-    position: relative;
-    width: 50%;
-  }
-.img-responsive {
-    opacity: 1;
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: .5s ease;
-    backface-visibility: hidden;
-  }
-  
-  .middle {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  
-  .container:hover .image {
-    opacity: 0.3;
-  }
-  
-  .container:hover .middle {
-    opacity: 1;
-  }
-  
-  .text {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-    padding: 16px 32px;
-  } */
-  /*  */
-
-.profile .team-member{
-    opacity: 1;
-    display: block;
-    position: relative;
-    width: 100%;
-}
-
-/* .profile .team-member:after{
-    content:"";
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.75);
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-} */
-
-/* .profile .team-member img:hover {
-    opacity: 0.5;
-    filter: alpha(opacity=50);
-} */
 
 .team-member ul{
     position: absolute;
@@ -201,13 +124,14 @@ i.red{
     font-family: sans-serif;
 }
 
-.our-team-title h1 {
+.our-team-title p {
     font-family: 'Playfair Display', serif;
     font-size: 66px;
     line-height: 92px;
     text-align: center;
     color: #B1B1B1;
     font-weight: 900;
+    margin: 0.67em 0;
 }
 
 /* Call button */
@@ -322,10 +246,64 @@ i.red{
     padding: 1rem;
 }
 
+/* Description button */
+.team-member-description {
+    display: flex;
+}
 
+.team-member-description a:focus {
+    outline: none;
+}
+
+.team-member-description .button-more {
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: linear-gradient(90deg, rgb(251, 249, 249) 0%, rgb(221, 162, 176) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 6px 3px 35px rgba(226, 176, 187, 0.67);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 5px;
+    text-decoration: none;
+}
+  
+.team-member-description .button-more {
+    display: block;
+}
+
+.button-more:hover, .button-more:focus {
+    color: #313133;
+    transform: translateY(-6px);
+}
+
+.button-more:hover::before, .button-more:focus::before {
+    opacity: 1;
+}
+
+.button-more:hover::after, .button-more:focus::after {
+    animation: none;
+    display: none;
+}
 
 @media screen and (max-width: 991px) {
     .team-member-description .modal-content {
         margin: 0 auto;
+    }
+    .team-member-description {
+        padding-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .team-member-description .button-more {
+        margin-left: 4rem;
+        margin-bottom: 1rem;
+    }
+    .team-member-description {
+        padding-top: 1rem;
     }
 }

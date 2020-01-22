@@ -44,7 +44,7 @@ class jpen_Our_team_widget extends WP_Widget {
     public function mfc_assets()
     {
         // Include css and js stylesheets inside the widget
-        wp_enqueue_style( 'style-our-team', get_template_directory_uri() . '/widgets/hedonist-our-team/style-our-team.css' );
+        wp_enqueue_style( 'style-our-team', get_template_directory_uri() . '/widgets/hedonist-our-team/style-our-team.css');
     }
 
     function widget( $args, $instance ) {
@@ -68,16 +68,19 @@ class jpen_Our_team_widget extends WP_Widget {
                         </div>
                     </div>
                 </a>
-                <h1><?php echo $instance['name-team-member'] ?></h1>
-                <h2><?php echo $instance['job-team-member'] ?></h2>
-                <p><?php echo $instance['phone-team-member'] ?></p>
+                <p class="team-member-name"><?php echo $instance['name-team-member'] ?></p>
+                <p class="team-member-job"><?php echo $instance['job-team-member'] ?></p>
+                <p class="team-member-phone"><?php echo $instance['phone-team-member'] ?></p>
                 <ul class="call-us-button">
                     <li>
                         <a href="tel:<?php echo $instance['phone-team-member'] ?>"><i class="fa fa-phone icon"></i></a>
                     </li>
                 </ul>
             </div>
-            
+            <!-- Learn More button -->
+            <div class="team-member-description">
+                <a data-toggle="modal" class="button-more" href="#<?php echo $id ?>">Научи повече</a>
+            </div>
             <?php
             echo $args['after_widget'];
             ?>

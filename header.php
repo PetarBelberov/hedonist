@@ -15,6 +15,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="shortcut icon" type="image/x-icon" href="<?php echo get_theme_file_uri( 'images/google-favicon.ico' ); ?>">
     <?php wp_head(); ?>
 </head>
 

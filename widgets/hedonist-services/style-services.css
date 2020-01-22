@@ -91,13 +91,14 @@
     color: #BE9359;
 }
 
-.services-title h1, .our-team-title h1 {
+.services-title p {
     font-family: 'Playfair Display', serif;
     font-size: 66px;
     line-height: 92px;
     text-align: center;
     color: #B1B1B1;
     font-weight: 900;
+    margin: 0.67em 0;
 }
 
 .services-container:hover {
