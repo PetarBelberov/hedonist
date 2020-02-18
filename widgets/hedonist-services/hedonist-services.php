@@ -49,8 +49,8 @@ class jpen_Service_widget extends WP_Widget {
         echo $args['before_widget'];
 
         // Returns the crc32 checksum of services title as unique positive integer
-        $id = 'id-'. abs(crc32($instance['title-services']));
-       
+        // $id = 'id-'. abs(crc32($instance['title-services']));
+        $id = $instance['url-services'];
         // Rest of the widget content
         ?>
         <a data-toggle="modal" href="#<?php echo $id ?>">
@@ -218,6 +218,11 @@ class jpen_Service_widget extends WP_Widget {
             $title = $instance['title-services'];
         }
 
+        $url = '';
+        if( !empty( $instance['url-services'] ) ) {
+            $url = $instance['url-services'];
+        }
+
         $description = '';
         if( !empty( $instance['description-services'] ) ) {
             $description = $instance['description-services'];
@@ -264,6 +269,17 @@ class jpen_Service_widget extends WP_Widget {
         </p>
         <?php
         if(!isset($title) || trim($title) == '') {
+            echo "You did not fill out title field. Required!";
+        }
+        ?>
+
+         <!-- URL field -->
+         <p>
+            <label for="<?php echo $this->get_field_name( 'url-services' ); ?>"><?php _e( 'URL:' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'url-services' ); ?>" name="<?php echo $this->get_field_name( 'url-services' ); ?>" type="text" value="<?php echo esc_attr( $url ); ?>" />
+        </p>
+        <?php
+        if(!isset($url) || trim($url) == '') {
             echo "You did not fill out title field. Required!";
         }
         ?>

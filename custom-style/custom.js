@@ -25,6 +25,14 @@ jQuery(document).ready(function($) {
 
 });
 
+// Trigger popup modal using (Modal ID) from url
+jQuery(document).ready(function($) {
+      if(window.location.hash) {
+          var hash = window.location.hash;
+          $(hash).modal('toggle');
+      }
+  });
+
 jQuery(document).ready(function($) {
     $(window).scroll(function () {
         var scrollDistance = $(window).scrollTop();
