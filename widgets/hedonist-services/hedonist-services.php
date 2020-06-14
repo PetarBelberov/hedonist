@@ -49,8 +49,8 @@ class jpen_Service_widget extends WP_Widget {
         echo $args['before_widget'];
 
         // Returns the crc32 checksum of services title as unique positive integer
-        // $id = 'id-'. abs(crc32($instance['title-services']));
-        $id = $instance['url-services'];
+        $id = hedonist_autocorrect_url($instance['url-services']);
+
         // Rest of the widget content
         ?>
         <a data-toggle="modal" href="#<?php echo $id ?>">
@@ -183,10 +183,15 @@ class jpen_Service_widget extends WP_Widget {
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <?php foreach ($matches_services as $match) {?>
+                                            <?php foreach ($matches_services as $match) { ?>
                                                 <tr>
-                                                    <td class="modal-services-subheaders"><?php echo "<u>" . $match[1] . "</u>", ' ', $match[2], PHP_EOL; ?></td>
-                                                    <td><?php echo $match[3]; ?></td>
+                                                    <!-- error handling -->
+                                                    <?php if(count($match) == 2) : ?>
+                                                        <td class="modal-services-subheaders"><?php echo "<u>" . $match[1] . "</u>", PHP_EOL; ?></td>
+                                                    <?php else : ?>
+                                                        <td class="modal-services-subheaders"><?php echo "<u>" . $match[1] . "</u>", ' ', $match[2], PHP_EOL; ?></td>
+                                                        <td><?php echo $match[3]; ?></td>
+                                                    <?php endif; ?>
                                                 </tr>
                                             <?php } ?>
                                             </tbody>
@@ -220,7 +225,7 @@ class jpen_Service_widget extends WP_Widget {
 
         $url = '';
         if( !empty( $instance['url-services'] ) ) {
-            $url = $instance['url-services'];
+            $url = hedonist_autocorrect_url($instance['url-services']);
         }
 
         $description = '';
@@ -280,7 +285,7 @@ class jpen_Service_widget extends WP_Widget {
         </p>
         <?php
         if(!isset($url) || trim($url) == '') {
-            echo "You did not fill out title field. Required!";
+            echo "You did not fill out url field. Required!";
         }
         ?>
 

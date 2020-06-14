@@ -293,9 +293,6 @@ i.red{
     .team-member-description .modal-content {
         margin: 0 auto;
     }
-    .team-member-description {
-        padding-top: 2rem;
-    }
 }
 
 @media screen and (max-width: 576px) {
@@ -306,4 +303,10 @@ i.red{
     .team-member-description {
         padding-top: 1rem;
     }
+}
+
+@media screen and (min-width: 1024px) {
+    .team-member-description {
+		margin-top: 2rem;
+	}
 }

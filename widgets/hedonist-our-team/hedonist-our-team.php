@@ -52,10 +52,8 @@ class jpen_Our_team_widget extends WP_Widget {
         if( !empty( $instance['name-team-member'] ) && !empty( $instance['image-team-member']) && !empty( $instance['phone-team-member']) && !empty( $instance['job-team-member'])) {
             echo $args['before_widget'];
 
-            $id = $instance['name-team-member'];
-            $id_arr = explode(' ',trim($id));
-            $id = strtolower($id_arr[0]);
-
+            $id = hedonist_autocorrect_url($instance['url-our-team']);
+            
             // Rest of the widget content
             ?>
             
@@ -132,6 +130,11 @@ class jpen_Our_team_widget extends WP_Widget {
     {
 
         // Extract the data from the instance variable
+        $url = '';
+        if( !empty( $instance['url-our-team'] ) ) {
+            $url = hedonist_autocorrect_url($instance['url-our-team']);
+        }
+
         $name = '';
         if( !empty( $instance['name-team-member'] ) ) {
             $name = $instance['name-team-member'];
@@ -164,6 +167,17 @@ class jpen_Our_team_widget extends WP_Widget {
         ?>
 
         <!-- Displaying the fields in the administrator form -->
+
+         <!-- URL field -->
+         <p>
+            <label for="<?php echo $this->get_field_name( 'url-our-team' ); ?>"><?php _e( 'URL:' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'url-our-team' ); ?>" name="<?php echo $this->get_field_name( 'url-our-team' ); ?>" type="text" value="<?php echo esc_attr( $url ); ?>" />
+        </p>
+        <?php
+        if(!isset($url) || trim($url) == '') {
+            echo "You did not fill out url field. Required!";
+        }
+        ?>
 
         <!-- Name field -->
         <p>
@@ -216,6 +230,22 @@ class jpen_Our_team_widget extends WP_Widget {
         </p>
         <?php
     }
+
+    function seoUrl($url) {
+        //Lower case everything
+        $url1 = strtolower($url);
+    
+        //Make alphanumeric (removes all other characters)
+        $url1 = preg_replace("/[^a-z0-9_\s-]/", "", $url1);
+    
+        //Clean up multiple dashes or whitespaces
+        $url1 = preg_replace("/[\s-]+/", " ", $url1);
+    
+        //Convert whitespaces and underscore to dash
+        $url1 = preg_replace("/[\s_]/", "-", $url1);
+     return $url1;
+    }
 }
+
 
 
