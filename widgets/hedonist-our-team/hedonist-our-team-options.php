@@ -42,7 +42,7 @@ function our_team_plugin_options() {
     $opt_val = $_POST[ $data_field_name ];
 
     // Save the posted value in the database
-    update_option( $opt_name, $opt_val );
+    update_option( $opt_name, sanitize_text_field($opt_val) );
 
     // Put a "settings saved" message on the screen
 
@@ -67,10 +67,10 @@ echo "<h2><span class=\"dashicons dashicons-edit settings\"></span>&emsp;" . __(
         <p>In this field you can change the title of the Our Team Area</p>
     </div>
     <form name="form1" method="post" action="">
-        <input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y">
+        <input type="hidden" name="<?php echo esc_attr($hidden_field_name); ?>" value="Y">
 
         <p><?php _e("Our Team Title:", 'menu-test' ); ?>
-            <input type="text" name="<?php echo $data_field_name; ?>" value="<?php echo $opt_val; ?>" size="20">
+            <input type="text" name="<?php echo esc_attr($data_field_name); ?>" value="<?php echo esc_attr($opt_val); ?>" size="20">
         </p><hr />
 
         <p class="submit">

@@ -46,18 +46,18 @@ class jpen_Service_widget extends WP_Widget {
         wp_enqueue_style( 'style-service', get_template_directory_uri() . '/widgets/hedonist-services/style-services.css' );
         
         if( !empty( $instance['title-services'] ) && !empty( $instance['image-services'])) {
-        echo $args['before_widget'];
+        echo esc_html($args['before_widget']);
 
         // Returns the crc32 checksum of services title as unique positive integer
         $id = hedonist_autocorrect_url($instance['url-services']);
 
         // Rest of the widget content
         ?>
-        <a data-toggle="modal" href="#<?php echo $id ?>">
+        <a data-toggle="modal" href="#<?php echo esc_url($id) ?>">
             <div class="service">
-                <img src="<?php echo $instance['image-services'] ?>" alt="image-services">
-                <h3><?php echo $instance['title-services'] ?></h3>
-                <p><?php echo $instance['description-services'] ?></p>
+                <img src="<?php echo esc_url($instance['image-services']) ?>" alt="image-services">
+                <h3><?php echo esc_html($instance['title-services']) ?></h3>
+                <p><?php echo esc_html($instance['description-services']) ?></p>
                 <?php
                 $regex_services = '/\{(.*)\}\s*|(.+ )+([0-9]+\s?[\p{L}]{2,3})/mu';
                 preg_match_all($regex_services, $instance['modal_services'], $matches_services, PREG_SET_ORDER);
@@ -65,30 +65,30 @@ class jpen_Service_widget extends WP_Widget {
             </div>
         </a>
         <?php
-        echo $args['after_widget'];
+        echo esc_html($args['after_widget']);
        
         ?>
             <!-- Modal -->
             <!-- Modal: modalQuickView -->
             <?php if(!empty( $matches_services) && !empty( $instance['modal_image_1'])) { ?>
             <?php  ?>
-            <div class="modal fade" id="<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="<?php echo esc_attr($id) ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
-                <div class="modal-dialog modal-lg" id="modal-services-<?php echo $id; ?>" role="document">
+                <div class="modal-dialog modal-lg" id="modal-services-<?php echo esc_attr($id); ?>" role="document">
                     <div class="modal-content">
                         <div class="modal-body-big">
                             <div class="row">
                                 <div class="col-lg-5">
                                     <!--Header-->
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="myModalLabel-<?php echo $id ?>"><?php echo $instance['title-services'] ?></h5>
+                                        <h5 class="modal-title" id="myModalLabel-<?php echo esc_attr($id) ?>"><?php echo esc_html($instance['title-services']) ?></h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">X</span>
                                         </button>
                                     </div>
                                     <!--Carousel Wrapper-->
                                     <?php  ?>
-                                    <div id="carousel-thumb-<?php echo $id ?>" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
+                                    <div id="carousel-thumb-<?php echo esc_attr($id) ?>" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
                                         <!--Slides-->
                                         <div class="carousel-inner" role="listbox">
                                             <?php
@@ -96,7 +96,7 @@ class jpen_Service_widget extends WP_Widget {
                                             ?>
                                                 <div class="carousel-item active">
                                                     <img class="d-block w-100"
-                                                         src="<?php echo $instance['modal_image_1'] ?>"
+                                                         src="<?php echo esc_url($instance['modal_image_1']) ?>"
                                                          alt="First slide">
                                                 </div>
                                             <?php
@@ -108,7 +108,7 @@ class jpen_Service_widget extends WP_Widget {
                                                 ?>
                                                 <div class="carousel-item">
                                                     <img class="d-block w-100"
-                                                         src="<?php echo $instance['modal_image_2'] ?>"
+                                                         src="<?php echo esc_url($instance['modal_image_2']) ?>"
                                                          alt="Second slide">
                                                 </div>
                                                 <?php
@@ -120,7 +120,7 @@ class jpen_Service_widget extends WP_Widget {
                                                 ?>
                                                 <div class="carousel-item">
                                                     <img class="d-block w-100"
-                                                         src="<?php echo $instance['modal_image_3'] ?>"
+                                                         src="<?php echo ($instance['modal_image_3']) ?>"
                                                          alt="Third slide">
                                                 </div>
                                                 <?php
@@ -135,11 +135,11 @@ class jpen_Service_widget extends WP_Widget {
                                                 !empty( $instance['modal_image_2'] && !empty( $instance['modal_image_3'] ))))) {
                                         ?>
 
-                                        <a class="carousel-control-prev" href="#carousel-thumb-<?php echo $id ?>" role="button" data-slide="prev">
+                                        <a class="carousel-control-prev" href="#carousel-thumb-<?php echo esc_attr($id) ?>" role="button" data-slide="prev">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Previous</span>
                                         </a>
-                                        <a class="carousel-control-next" href="#carousel-thumb-<?php echo $id ?>" role="button" data-slide="next">
+                                        <a class="carousel-control-next" href="#carousel-thumb-<?php echo esc_attr($id) ?>" role="button" data-slide="next">
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Next</span>
                                         </a>
@@ -151,19 +151,19 @@ class jpen_Service_widget extends WP_Widget {
                                             <?php
                                             if( !empty( $instance['modal_image_1'] )) {
                                                 ?>
-                                                <li data-target="#carousel-thumb-<?php echo $id ?>" data-slide-to="0" class="active"></li>
+                                                <li data-target="#carousel-thumb-<?php echo esc_attr($id) ?>" data-slide-to="0" class="active"></li>
                                                 <?php
                                             }
 
                                             if( !empty( $instance['modal_image_2'] )) {
                                                 ?>
-                                                <li data-target="#carousel-thumb-<?php echo $id ?>" data-slide-to="1"></li>
+                                                <li data-target="#carousel-thumb-<?php echo esc_attr($id) ?>" data-slide-to="1"></li>
                                                 <?php
                                             }
 
                                             if( !empty( $instance['modal_image_3'] )) {
                                                 ?>
-                                                <li data-target="#carousel-thumb-<?php echo $id ?>" data-slide-to="2"></li>
+                                                <li data-target="#carousel-thumb-<?php echo esc_attr($id) ?>" data-slide-to="2"></li>
                                                 <?php
                                             }
                                             ?>
@@ -187,9 +187,9 @@ class jpen_Service_widget extends WP_Widget {
                                                 <tr>
                                                     <!-- error handling -->
                                                     <?php if(count($match) == 2) : ?>
-                                                        <td class="modal-services-subheaders"><?php echo "<u>" . $match[1] . "</u>", PHP_EOL; ?></td>
+                                                        <td class="modal-services-subheaders"><?php echo "<u>" . esc_attr($match[1]) . "</u>", PHP_EOL; ?></td>
                                                     <?php else : ?>
-                                                        <td class="modal-services-subheaders"><?php echo "<u>" . $match[1] . "</u>", ' ', $match[2], PHP_EOL; ?></td>
+                                                        <td class="modal-services-subheaders"><?php echo "<u>" . esc_attr($match[1]) . "</u>", ' ', esc_attr($match[2]), PHP_EOL; ?></td>
                                                         <td><?php echo $match[3]; ?></td>
                                                     <?php endif; ?>
                                                 </tr>

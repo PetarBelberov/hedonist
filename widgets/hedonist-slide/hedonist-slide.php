@@ -53,27 +53,27 @@ class jpen_Slide_widget extends WP_Widget {
         // Include css and js stylesheets inside the widget
         wp_enqueue_style( 'style-slide', get_template_directory_uri() . '/widgets/hedonist-slide/style-slide.css' );
 
-        echo $args['before_widget'];
+        echo esc_html($args['before_widget']);
         // Rest of the widget content
         ?>
         <div class='slider-container animatable bounceIn'>
             <div class='slider-content'>
             <?php if( !empty( $instance['title'] ) ) : ?>
                 <div class='slider-title'>
-                    <h1 class="title-heading"><?php echo $instance['title'] ?></h1>
+                    <h1 class="title-heading"><?php echo esc_html($instance['title']) ?></h1>
                 </div>
             <?php elseif (isset( $instance['slider_logo'] ) ) :  ?>
                 <div class='slider-logo'>
-                    <img src="<?php echo $instance['slider_logo'] ?>" alt="slider-logo">
+                    <img src="<?php echo esc_url($instance['slider_logo']) ?>" alt="slider-logo">
                 </div>
             <?php endif; ?>
                 <div class='slider-separator'></div>
                 <div class='slider-text'>
-                    <p><?php echo $instance['description'] ?></p>
+                    <p><?php echo esc_html($instance['description']) ?></p>
                 </div>
                 <div class='slider-button'>
-                    <a href="<?php echo $instance['button_link'] ?>" class="slider-button-link">
-                        <span class="slider-button-text"><?php echo $instance['button_name'] ?></span>
+                    <a href="<?php echo esc_url($instance['button_link']) ?>" class="slider-button-link">
+                        <span class="slider-button-text"><?php echo esc_html($instance['button_name']) ?></span>
                     </a>
                 </div>
             </div>
@@ -94,7 +94,7 @@ class jpen_Slide_widget extends WP_Widget {
 ?>
 </style>
         <?php
-        echo $args['after_widget'];
+        echo esc_html($args['after_widget']);
     }
 
     // Processes widget options to be saved
@@ -208,13 +208,13 @@ class jpen_Slide_widget extends WP_Widget {
         <label for="<?php echo $this->get_field_id('content-align'); ?>">Content Align:
             <select class='widefat' id="<?php echo $this->get_field_id('content-align'); ?>"
                     name="<?php echo $this->get_field_name('content-align'); ?>" type="text">
-                <option value='Left'<?php echo ($align=='Left')?'selected':''; ?>>
+                <option value='Left'<?php echo esc_attr(($align=='Left')) ? 'selected' : ''; ?>>
                     Left
                 </option>
-                <option value='Centered'<?php echo ($align=='Centered')?'selected':''; ?>>
+                <option value='Centered'<?php echo esc_attr(($align=='Centered')) ? 'selected' : ''; ?>>
                     Centered
                 </option>
-                <option value='Right'<?php echo ($align=='Right')?'selected':''; ?>>
+                <option value='Right'<?php echo esc_attr(($align=='Right')) ? 'selected' : ''; ?>>
                     Right
                 </option>
             </select>
@@ -222,5 +222,3 @@ class jpen_Slide_widget extends WP_Widget {
         <?php
     }
 }
-
-

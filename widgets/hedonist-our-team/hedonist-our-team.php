@@ -58,26 +58,26 @@ class jpen_Our_team_widget extends WP_Widget {
             ?>
             
             <div class="profile">
-                <a data-toggle="modal" href="#<?php echo $id ?>">
+                <a data-toggle="modal" href="#<?php echo esc_url($id) ?>">
                     <div class="team-member-img">
                         <div class="img-box team-member">
                             <div class="team-member-overlay"></div>
-                            <img src="<?php echo $instance['image-team-member'] ?>" class="img-responsive" alt="image-team-member">
+                            <img src="<?php echo esc_url($instance['image-team-member']) ?>" class="img-responsive" alt="image-team-member">
                         </div>
                     </div>
                 </a>
-                <p class="team-member-name"><?php echo $instance['name-team-member'] ?></p>
-                <p class="team-member-job"><?php echo $instance['job-team-member'] ?></p>
-                <p class="team-member-phone"><?php echo $instance['phone-team-member'] ?></p>
+                <p class="team-member-name"><?php echo esc_html($instance['name-team-member']) ?></p>
+                <p class="team-member-job"><?php echo esc_html($instance['job-team-member']) ?></p>
+                <p class="team-member-phone"><?php echo esc_html($instance['phone-team-member']) ?></p>
                 <ul class="call-us-button">
                     <li>
-                        <a href="tel:<?php echo $instance['phone-team-member'] ?>"><i class="fa fa-phone icon"></i></a>
+                        <a href="tel:<?php echo esc_url($instance['phone-team-member']) ?>"><i class="fa fa-phone icon"></i></a>
                     </li>
                 </ul>
             </div>
             <!-- Learn More button -->
             <div class="team-member-description">
-                <a data-toggle="modal" class="button-more" href="#<?php echo $id ?>">Научи повече</a>
+                <a data-toggle="modal" class="button-more" href="#<?php echo esc_url($id) ?>">Научи повече</a>
             </div>
             <?php
             echo $args['after_widget'];
@@ -85,7 +85,7 @@ class jpen_Our_team_widget extends WP_Widget {
             <!-- Modal -->
             <!-- Modal: modalQuickView -->
             <?php if(!empty( $instance['modal-description'])) : ?>
-            <div class="modal fade team-member-description" id="<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <div class="modal fade team-member-description" id="<?php echo esc_attr($id) ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-our-team" role="document">
                     <div class="modal-content">
@@ -102,10 +102,10 @@ class jpen_Our_team_widget extends WP_Widget {
                                     <div class="carousel slide carousel-fade carousel-thumbnails team-member-description-body" data-ride="carousel">
                                         <div class="img-box team-member">
                                             <div class="team-member-overlay"></div>
-                                            <img src="<?php echo $instance['image-team-member'] ?>" class="img-responsive" alt="image-team-member"> 
+                                            <img src="<?php echo esc_url($instance['image-team-member']) ?>" class="img-responsive" alt="image-team-member"> 
                                         </div>
                                         <div class="carousel-inner team-member-description-content" role="listbox">
-                                           <p><?php echo $instance['modal-description'] ?></p>
+                                           <p><?php echo esc_html($instance['modal-description']) ?></p>
                                         </div> 
                                                                                  
                                     </div>
