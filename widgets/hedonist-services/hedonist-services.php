@@ -46,14 +46,14 @@ class jpen_Service_widget extends WP_Widget {
         wp_enqueue_style( 'style-service', get_template_directory_uri() . '/widgets/hedonist-services/style-services.css' );
         
         if( !empty( $instance['title-services'] ) && !empty( $instance['image-services'])) {
-        $args['before_widget'];
+        echo $args['before_widget'];
 
         // Returns the crc32 checksum of services title as unique positive integer
         $id = hedonist_autocorrect_url($instance['url-services']);
 
         // Rest of the widget content
         ?>
-        <a data-toggle="modal" href="#<?php echo esc_url($id) ?>">
+        <a data-toggle="modal" href="#<?php echo esc_html($id) ?>">
             <div class="service">
                 <img src="<?php echo esc_url($instance['image-services']) ?>" alt="image-services">
                 <h3><?php echo esc_html($instance['title-services']) ?></h3>

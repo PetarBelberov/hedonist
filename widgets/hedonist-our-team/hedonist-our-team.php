@@ -58,7 +58,7 @@ class jpen_Our_team_widget extends WP_Widget {
             ?>
             
             <div class="profile">
-                <a data-toggle="modal" href="#<?php echo esc_url($id) ?>">
+                <a data-toggle="modal" href="#<?php echo esc_html($id) ?>">
                     <div class="team-member-img">
                         <div class="img-box team-member">
                             <div class="team-member-overlay"></div>
@@ -71,13 +71,13 @@ class jpen_Our_team_widget extends WP_Widget {
                 <p class="team-member-phone"><?php echo esc_html($instance['phone-team-member']) ?></p>
                 <ul class="call-us-button">
                     <li>
-                        <a href="tel:<?php echo esc_url($instance['phone-team-member']) ?>"><i class="fa fa-phone icon"></i></a>
+                        <a href="tel:<?php echo esc_html($instance['phone-team-member']) ?>"><i class="fa fa-phone icon"></i></a>
                     </li>
                 </ul>
             </div>
             <!-- Learn More button -->
             <div class="team-member-description">
-                <a data-toggle="modal" class="button-more" href="#<?php echo esc_url($id) ?>">Научи повече</a>
+                <a data-toggle="modal" class="button-more" href="#<?php echo esc_html($id) ?>">Научи повече</a>
             </div>
             <?php
             echo $args['after_widget'];
