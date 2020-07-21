@@ -53,7 +53,7 @@ class jpen_Slide_widget extends WP_Widget {
         // Include css and js stylesheets inside the widget
         wp_enqueue_style( 'style-slide', get_template_directory_uri() . '/widgets/hedonist-slide/style-slide.css' );
 
-        echo esc_html($args['before_widget']);
+        $args['before_widget'];
         // Rest of the widget content
         ?>
         <div class='slider-container animatable bounceIn'>
@@ -94,7 +94,7 @@ class jpen_Slide_widget extends WP_Widget {
 ?>
 </style>
         <?php
-        echo esc_html($args['after_widget']);
+        echo $args['after_widget'];
     }
 
     // Processes widget options to be saved
