@@ -145,6 +145,8 @@ add_action('widgets_init', 'hedonist_footer_widget');
  * Enqueue scripts and styles.
  */
 function hedonist_scripts() {
+	wp_enqueue_script('jquery');
+
 	wp_enqueue_style( 'hedonist-style', get_stylesheet_uri() );
 
     wp_register_script( 'slidepanel', get_template_directory_uri() . '/js/slidepanel.js' );
@@ -153,11 +155,11 @@ function hedonist_scripts() {
     $url_custom = array( 'template_url' => get_bloginfo('template_url') );
     wp_localize_script( 'slidepanel', 'url_custom', $url_custom );
 
-    wp_enqueue_script( 'slidepanel', get_template_directory_uri() . '/js/slidepanel.js', array('jquery'), '20160909', true );
+    wp_enqueue_script( 'slidepanel', get_template_directory_uri() . '/js/slidepanel.js', '20160909', true );
 
-	wp_enqueue_script( 'hedonist-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'hedonist-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', null, true );
 
-	wp_enqueue_script( 'custom', get_template_directory_uri() . '/custom-style/custom.js', array('jquery'), 1.1, true );
+	wp_enqueue_script( 'custom', get_template_directory_uri() . '/custom-style/custom.js', 1.0, null, true );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -169,7 +171,7 @@ add_action( 'wp_enqueue_scripts', 'hedonist_scripts' );
 function hedonist_admin_scripts() {
 	wp_enqueue_script('media-upload');
 	wp_enqueue_script('thickbox');
-	wp_enqueue_script( 'hedonist-media-upload', get_template_directory_uri() . '/custom-style/hedonist-media-upload.js', array('jquery'), 1.1, true );
+	wp_enqueue_script( 'hedonist-media-upload', get_template_directory_uri() . '/custom-style/hedonist-media-upload.js', 1.0, null, true );
 	wp_enqueue_style('thickbox');
 }
 add_action('admin_enqueue_scripts', 'hedonist_admin_scripts');
@@ -196,7 +198,7 @@ function hedonist_bootstrap_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'hedonist_bootstrap_enqueue_styles');
 
 function hedonist_bootstrap_enqueue_scripts() {
-    wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array( 'jquery' ) );
+    wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js');
 }
 add_action( 'wp_enqueue_scripts', 'hedonist_bootstrap_enqueue_scripts');
 
@@ -268,6 +270,17 @@ function hedonist_autocorrect_url($url) {
 }
 
 add_action('template_redirect', 'meks_remove_wp_archives');
+
+function hedonist_security_headers() {
+	// header('Content-Security-Policy: default-src https:');
+	header('X-Frame-Options: SAMEORIGIN');
+	header('X-XSS-Protection: 1; mode=block');
+	header('X-Content-Type-Options: nosniff');
+	header('Strict-Transport-Security:max-age=31536000; includeSubdomains; preload');
+	header("Referrer-Policy: no-referrer");
+	header("Permissions-Policy: geolocation=(self 'https://lucierre.com/'), microphone=()");
+}
+add_action('send_headers', 'hedonist_security_headers');
 
 // Add custom widgets and widget areas
 require get_template_directory() . '/widgets/hedonist-our-team/hedonist-our-team.php';

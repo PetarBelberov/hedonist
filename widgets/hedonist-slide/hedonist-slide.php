@@ -57,6 +57,11 @@ class jpen_Slide_widget extends WP_Widget {
         // Rest of the widget content
         ?>
         <div class='slider-container animatable bounceIn'>
+            <div id="snow_container"><!-- Temporary Snow Container -->
+                <?php for ($i=0; $i < 200; $i++) : ?>
+                    <div class="snow"></div>
+                <?php endfor; ?>
+        
             <div class='slider-content'>
             <?php if( !empty( $instance['title'] ) ) : ?>
                 <div class='slider-title'>
@@ -71,12 +76,14 @@ class jpen_Slide_widget extends WP_Widget {
                 <div class='slider-text'>
                     <p><?php echo esc_html($instance['description']) ?></p>
                 </div>
+                
                 <div class='slider-button'>
                     <a href="<?php echo esc_url($instance['button_link']) ?>" class="slider-button-link">
                         <span class="slider-button-text"><?php echo esc_html($instance['button_name']) ?></span>
                     </a>
                 </div>
             </div>
+            </div><!-- #snow_container -->
         </div>
 <style>
     .slider-container {

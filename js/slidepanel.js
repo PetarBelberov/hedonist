@@ -1,4 +1,4 @@
-(function($) {
+jQuery(function($) {
     $('#toggle').toggle(
         function() {
             $('#toggle').html('<i class="fa fa-close"></i>');
@@ -22,4 +22,4 @@
         $('#popout').animate({ left: -500 }, 'linear');
         $('#toggle').trigger('click');
     });
-})(jQuery);
+});
