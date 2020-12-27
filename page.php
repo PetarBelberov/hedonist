@@ -16,7 +16,6 @@ get_header();
 ?>
 	<div id="primary" class="content-area">
         
-        
 		<main id="main" class="site-main">
 
 		<?php
@@ -39,25 +38,24 @@ get_header();
 
                 <!-- Services Container -->
                 <div class="services-main">
-                    <div class="services-title" id="2"><p><?php echo get_option('services_widget_title') ?></p></div>
-                        <div class="services">
-                            <div class="row services-containers">
-                                    <?php (!dynamic_sidebar("service-widget") ) ?>
-                            </div>
+                    <div class="services-title" id="services"><p><?php echo get_option('services_widget_title') ?></p></div>
+                    <div class="services">
+                        <div class="row services-containers">
+                            <?php (!dynamic_sidebar("service-widget") ) ?>
                         </div>
+                    </div>
                 </div>
 
                 <!-- Our Team Container -->
-                <?php include_once( get_template_directory() . '/widgets/hedonist-our-team/hedonist-our-team.php' ); ?>
                 <div class="our-team-main">
-                    <div class="our-team-title" id="3"><p><?php echo get_option('our_team_widget_title') ?></p></div>
+                    <div class="our-team-title" id="team"><p><?php echo get_option('our_team_widget_title') ?></p></div>
                         <div class="row our-team">
-                                <?php if (!dynamic_sidebar("our-team-widget") ) : endif;?>
+                            <?php if (!dynamic_sidebar("our-team-widget") ) : endif;?>
                         </div>
                 </div>
                 <!-- Home Container -->
-                    <?php if (!dynamic_sidebar("home-widget") ) : endif;
-            }
+                    <?php if (!dynamic_sidebar("home-widget") ) : endif; ?>
+            <?php }
         else {
             get_template_part( 'template-parts/content', 'page' );
         }
@@ -65,5 +63,4 @@ get_header();
         </main><!-- #main -->
 	</div><!-- #primary -->
 <?php
-get_sidebar();
 get_footer();

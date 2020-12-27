@@ -57,34 +57,35 @@ class jpen_Slide_widget extends WP_Widget {
         // Rest of the widget content
         ?>
         <div class='slider-container animatable bounceIn'>
-            <div id="snow_container"><!-- Temporary Snow Container -->
-                <?php for ($i=0; $i < 200; $i++) : ?>
-                    <div class="snow"></div>
-                <?php endfor; ?>
-        
             <div class='slider-content'>
-            <?php if( !empty( $instance['title'] ) ) : ?>
-                <div class='slider-title'>
-                    <h1 class="title-heading"><?php echo esc_html($instance['title']) ?></h1>
-                </div>
-            <?php elseif (isset( $instance['slider_logo'] ) ) :  ?>
-                <div class='slider-logo'>
-                    <img src="<?php echo esc_url($instance['slider_logo']) ?>" alt="slider-logo">
-                </div>
-            <?php endif; ?>
-                <div class='slider-separator'></div>
-                <div class='slider-text'>
-                    <p><?php echo esc_html($instance['description']) ?></p>
-                </div>
-                
-                <div class='slider-button'>
-                    <a href="<?php echo esc_url($instance['button_link']) ?>" class="slider-button-link">
-                        <span class="slider-button-text"><?php echo esc_html($instance['button_name']) ?></span>
-                    </a>
-                </div>
+
+                <div id="snow_container"><!-- Temporary Snow Container -->
+                    <?php for ($i=0; $i < 200; $i++) : ?>
+                        <div class="snow"></div>
+                    <?php endfor; ?>
+
+                    <?php if( !empty( $instance['title'] ) ) : ?>
+                        <div class='slider-title'>
+                            <h1 class="title-heading"><?php echo esc_html($instance['title']) ?></h1>
+                        </div>
+                    <?php elseif (isset( $instance['slider_logo'] ) ) :  ?>
+                        <div class='slider-logo'>
+                            <img src="<?php echo esc_url($instance['slider_logo']) ?>" alt="slider-logo">
+                        </div>
+                    <?php endif; ?>
+                    <div class='slider-separator'></div>
+                    <div class='slider-text'>
+                        <p><?php echo esc_html($instance['description']) ?></p>
+                    </div>
+                    
+                    <div class='slider-button'>
+                        <a href="<?php echo esc_url($instance['button_link']) ?>" class="slider-button-link">
+                            <span class="slider-button-text"><?php echo esc_html($instance['button_name']) ?></span>
+                        </a>
+                    </div>
+                </div><!-- #snow_container -->
             </div>
-            </div><!-- #snow_container -->
-        </div>
+        </div><!-- .slider-container -->
 <style>
     .slider-container {
         background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ),url("<?php echo $instance['image'] ?>") center;

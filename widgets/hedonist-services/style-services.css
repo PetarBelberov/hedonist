@@ -26,19 +26,15 @@
     border-bottom: none;
 }
 
-.modal-dialog.modal-lg .table td, .modal-dialog.modal-lg .table th {
+.modal-dialog .table td, .modal-dialog .table th {
     padding: 0.2rem 0.75rem 0.2rem 0.75rem
 }
 
-.modal-dialog.modal-lg .modal-body .table tr {
+.modal-dialog .modal-body .table tr {
     font-size: 14px !important;
 }
 
-.modal-dialog.modal-lg .modal-header {
-    padding: 0px;
-}
-
-.modal-dialog.modal-lg .modal-header button {
+.modal-dialog .modal-header button {
     outline: none;
 }
 
@@ -46,15 +42,10 @@
     padding-top: 0.5rem;
 }
 
-.modal-dialog.modal-lg .modal-content .modal-body-big {
+.modal-dialog .modal-content .modal-body-big {
     border: 4px solid #C7A77A;
     background-color: #e7ccd08c;
     padding: 0.5rem;
-}
-
-/* Services slider image height */
-.modal-body-big .row .col-lg-5 .slide {
-    height: 90%;
 }
 
 .modal-body-big .carousel-inner, .modal-body-big .carousel-inner .carousel-item, .modal-body-big .carousel-inner .carousel-item img {
@@ -127,7 +118,7 @@
 }
 
 @media screen and (min-width: 400px) {
-    .modal-dialog.modal-lg .table td, .modal-dialog.modal-lg .table th {
+    .modal-dialog .table td, .modal-dialog .table th {
         padding: 0.2rem 0.15rem 0.2rem 0;
     }
 }
@@ -138,7 +129,7 @@
         margin: 0 auto;
     }
 
-    .modal-dialog.modal-lg .carousel-inner {
+    .modal-dialog .carousel-inner {
         height: auto;
     }
 
@@ -155,5 +146,11 @@
 
     .services-containers {
         padding: 0px 20px 0px 20px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .modal-dialog {
+        max-width: 85vw;
     }
 }

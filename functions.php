@@ -122,7 +122,7 @@ function hedonist_home_widget() {
         'id' => 'home-widget',
         'before_widget' => '<div class="home-container">',
         'after_widget' => '</div>',
-        'before_title' => '<h3 class="home-widget-title animatable fadeIn" id="4">',
+        'before_title' => '<h3 class="home-widget-title animatable fadeIn" id="gallery">',
         'after_title' => '</h3>',
     ));
 }
@@ -149,13 +149,17 @@ function hedonist_scripts() {
 
 	wp_enqueue_style( 'hedonist-style', get_stylesheet_uri() );
 
-    wp_register_script( 'slidepanel', get_template_directory_uri() . '/js/slidepanel.js' );
+	wp_register_script( 'slidepanel', get_template_directory_uri() . '/js/slidepanel.js' );
+	
+	wp_register_script( 'scroll', get_template_directory_uri() . '/js/scroll.js' );
 
     // Localizes a registered script with data for a JavaScript variable.
     $url_custom = array( 'template_url' => get_bloginfo('template_url') );
     wp_localize_script( 'slidepanel', 'url_custom', $url_custom );
 
-    wp_enqueue_script( 'slidepanel', get_template_directory_uri() . '/js/slidepanel.js', '20160909', true );
+	wp_enqueue_script( 'slidepanel', get_template_directory_uri() . '/js/slidepanel.js', '20160909', true );
+	
+	wp_enqueue_script( 'scroll', get_template_directory_uri() . '/js/scroll.js', '20160909', true );
 
 	wp_enqueue_script( 'hedonist-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', null, true );
 

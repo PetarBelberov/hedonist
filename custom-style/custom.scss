@@ -640,6 +640,23 @@ body {
 	}
 }
 @media screen and (max-width: 900px) {
+	#toggle.collapsed {
+		.navbar-close-icon {
+		  display: inline-block;
+		  width: 100%;
+		  vertical-align: middle;
+		  background-size: 100% 100%;
+		  height: 100%;
+		  background-repeat: no-repeat;
+		  margin: 0 auto;
+		  text-align: center;
+		  animation: clickit 2s
+		}
+		.navbar-toggler-icon {
+		  display: none;
+		}
+	  }
+	  
 	#popout-2 {
 		position: fixed;
 		height: 100%;
@@ -649,6 +666,10 @@ body {
 		top: 0px;
 		right: -500px;
 		overflow: auto;
+		&.show {
+			right: 0;
+      		transition:all 1s;
+		}
 	}
 	#popout {
 		position: fixed;
@@ -666,6 +687,10 @@ body {
 		-moz-background-size: cover;
 		-o-background-size: cover;
 		background-size: cover;
+		&.show {
+			left: 0;
+      		transition:all 1s;
+		}
 		ul {
 			li {
 				a {
@@ -690,6 +715,12 @@ body {
 		.fa-close {
 			font-size: 24px;
 			color: white;
+		}
+		& .navbar-close-icon {
+			display: none;
+		  }
+		& .navbar-toggler-icon {
+			background-image: url(../images/menu.png);
 		}
 	}
 	.nav-menu {

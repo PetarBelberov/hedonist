@@ -23,7 +23,7 @@
 <div id="page" class="site">
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding" id="1">
+		<div class="site-branding" id="home">
 			<?php
 			the_custom_logo();
             // Temporary Christmas Hat
@@ -61,7 +61,11 @@
 			?>
 			<nav id="site-navigation" class="main-navigation">
 				<div id="toggle">
-					<img src="<?php bloginfo('template_url'); ?>/images/menu.png" alt="menu-icon">
+					<!-- <img src="<?php bloginfo('template_url'); ?>/images/menu.png" alt="menu-icon"> -->
+					<span class="navbar-toggler-icon"></span>
+					<span class="navbar-close-icon">
+						<i class="fa fa-close"></i>
+					</span>
 				</div>
 				<div id="popout-2"></div>    
 				<div id="popout">

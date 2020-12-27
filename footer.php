@@ -15,7 +15,7 @@
 
 	<footer id="colophon" class="site-footer">
         <!-- Home Container -->
-        <div class="site-info" id="5">
+        <div class="site-info" id="contacts">
             <?php dynamic_sidebar( 'footer-widget-area' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
