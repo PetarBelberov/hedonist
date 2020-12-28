@@ -4,6 +4,9 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 /** Step 2 (from text above). Register the above function using the admin_menu action hook */
 add_action( 'admin_menu', 'our_team_plugin_menu' );
 
+// Runs before any headers are sent and enqueue style in the admin screen
+add_action( 'init', 'our_team_sylesheets' );
+
 /** Step 1. Function that contains the menu-building code */
 function our_team_plugin_menu() {
     $submenu_text = '<span class="submenu-text-edit">Our Team Plugin &nbsp;</span>';
@@ -18,8 +21,12 @@ function our_team_plugin_menu() {
     );
 }
 
-// Include css and js stylesheets inside the widget
-wp_enqueue_style( 'style-our-team', get_template_directory_uri() . '/widgets/hedonist-our-team/style-our-team.css' );
+function our_team_sylesheets() {
+    // Include css and js stylesheets inside the widget
+    wp_register_style('style-our-team', get_template_directory_uri() . '/widgets/hedonist-our-team/style-our-team.css', true );
+    wp_enqueue_style('style-our-team');
+}
+    // wp_enqueue_style( 'style-our-team', get_template_directory_uri() . '/widgets/hedonist-our-team/style-our-team.css' );
 
 /** Step 3. HTML output for the page */
 function our_team_plugin_options() {

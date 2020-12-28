@@ -63,12 +63,13 @@
     font-family: 'Playfair Display', serif;
 }
 
-.services, .our-team {
+.services {
     padding-top: 3rem;
     font-family: 'Bad Script', cursive;
+    padding-bottom: 3rem;
 }
 
-.services-title, .our-team-title {
+.services-title {
     padding-top: 3rem;
 }
 

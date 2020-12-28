@@ -37,17 +37,12 @@ class jpen_Our_team_widget extends WP_Widget {
         );
         //creates a new widget with the id of 'our-team-widget', the name 'Our Team widget', and two widget options: a class name and a short description.
         parent::__construct( 'our_team_widget', 'Our Team widget', $widget_options );
-
-        add_action( 'admin_enqueue_scripts', array( $this, 'mfc_assets' ) );
-    }
-
-    public function mfc_assets()
-    {
-        // Include css and js stylesheets inside the widget
-        wp_enqueue_style( 'style-our-team', get_template_directory_uri() . '/widgets/hedonist-our-team/style-our-team.css');
     }
 
     function widget( $args, $instance ) {
+
+        // Include css and js stylesheets inside the widget
+        wp_enqueue_style( 'style-our-team', get_template_directory_uri() . '/widgets/hedonist-our-team/style-our-team.css');
 
         if( !empty( $instance['name-team-member'] ) && !empty( $instance['image-team-member']) && !empty( $instance['phone-team-member']) && !empty( $instance['job-team-member'])) {
             echo $args['before_widget'];

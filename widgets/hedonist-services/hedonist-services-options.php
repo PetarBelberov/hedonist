@@ -19,9 +19,6 @@ function services_plugin_menu() {
     );
 }
 
-// Include css and js stylesheets inside the widget
-wp_enqueue_style( 'style-services',  get_template_directory_uri() . '/widgets/hedonist-services/style-services.css' );
-
 /** Step 3. HTML output for the page */
 function services_plugin_options() {
     if ( !current_user_can( 'manage_options' ) )  {

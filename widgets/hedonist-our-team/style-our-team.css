@@ -1,5 +1,7 @@
 .our-team {
     padding-top: 3rem;
+    font-family: 'Bad Script', cursive;
+    padding-bottom: 3rem;
 }
 
 .our-team-container {
@@ -30,7 +32,7 @@ h6.description{
     font-weight: 600;
     color: #c7a77a;
     font-size: 20px;
-    margin: 10px 0 0 0;
+    margin: 35px 0 0 0;
     font-family: 'Bad Script';
 }
 
@@ -131,6 +133,7 @@ i.red{
     text-align: center;
     color: #B1B1B1;
     font-weight: 900;
+    padding-top: 3rem;
     margin: 0.67em 0;
 }
 
@@ -295,18 +298,32 @@ i.red{
     }
 }
 
+@media screen and (max-width: 1200px) {
+    .our-team-container .call-us-button{
+        top: 42%;
+      }
+}
+
 @media screen and (max-width: 576px) {
+    .profile {
+        text-align: center;
+    }
     .team-member-description .button-more {
-        margin-left: 4rem;
+        margin: 0 auto;
         margin-bottom: 1rem;
     }
     .team-member-description {
-        padding-top: 1rem;
+        padding-top: 2.5rem;
+        margin-bottom: 1rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
     .team-member-description {
 		margin-top: 2rem;
-	}
+    }
+    
+    .team-member-description .button-more {
+        margin-top: 2vh;
+    }
 }
