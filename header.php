@@ -26,8 +26,7 @@
 		<div class="site-branding" id="home">
 			<?php
 			the_custom_logo();
-            // Temporary Christmas Hat
-            ?> <img id="christmas_hat" src="<?php echo esc_attr(home_url( '/wp-content/uploads/2020/12/lucierre-christmas-hat.png') ); ?>"> <?php
+           
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>

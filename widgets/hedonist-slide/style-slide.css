@@ -19,7 +19,6 @@
     font-size: 75px;
     line-height: 110px;
     font-family: 'Pinyon Script', cursive;
-    /* font-family: "Azbuka03_D"; */
     font-weight: 400;
     line-height: 1.4;
     letter-spacing: 0px;
@@ -28,6 +27,12 @@
 
 .slider-logo {
     margin: 50px 0;
+}
+
+.slider-logo img {
+    background: transparent;
+    overflow: hidden;
+    filter: drop-shadow(0 0 10px white);
 }
 
 .slider-text p {
