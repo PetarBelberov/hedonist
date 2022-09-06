@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
             $('html, body').stop().animate({
                 scrollTop: $(target).offset().top
             }, 600, function() {
-                location.hash = ''; //remove the hash (#jumptarget) to the page url
+                
             });
     
             return false;
